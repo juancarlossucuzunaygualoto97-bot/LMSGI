@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cubot C45 AZUL - Reloj inteligente",
+    "precio": 34.99,
+    "precioOriginal": 499.99,
+    "descuento": 50,
+    "imagen": "https://images.unsplash.com/photo-1606813902915-d23e25f5d2c1?w=500&auto=format&fit=crop",
+    "valoracion": 5.4,
+    "opiniones": 0,
+    "caracteristicas": {
+      "cpu": "Chipset Realtek RTL8762C",
+      "ram": "256 MB",
+      "disco": "512 MB"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "iPhone 16 5G 128GB Azul",
+    "precio": 799.00,
+    "precioOriginal": 959.00,
+    "descuento": 17,
+    "imagen": "https://images.unsplash.com/photo-1603898037225-1be31a016f8e?w=500&auto=format&fit=crop",
+    "valoracion": 5,
+    "opiniones": 34,
+    "caracteristicas": {
+      "cpu": "Apple A18 Bionic",
+      "ram": "8 GB",
+      "disco": "128 GB"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Samsung Galaxy S24 Ultra",
+    "precio": 999.00,
+    "precioOriginal": 1180.00,
+    "descuento": 15,
+    "imagen": "https://images.unsplash.com/photo-1610901357838-2e7b504fddf4?w=500&auto=format&fit=crop",
+    "valoracion": 4.9,
+    "opiniones": 87,
+    "caracteristicas": {
+      "cpu": "Snapdragon 8 Gen 3",
+      "ram": "12 GB",
+      "disco": "256 GB"
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Huawei Watch Fit 2",
+    "precio": 89.99,
+    "precioOriginal": 119.99,
+    "descuento": 25,
+    "imagen": "https://images.unsplash.com/photo-1606811841036-d8c7a9c5d3f3?w=500&auto=format&fit=crop",
+    "valoracion": 4.6,
+    "opiniones": 54,
+    "caracteristicas": {
+      "cpu": "HiSilicon Kirin A1",
+      "ram": "128 MB",
+      "disco": "4 GB"
+    }
+  },
+  {
+    "id": 5,
+    "nombre": "Xiaomi Redmi Note 13 Pro",
+    "precio": 299.99,
+    "precioOriginal": 333.00,
+    "descuento": 10,
+    "imagen": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop",
+    "valoracion": 4.5,
+    "opiniones": 120,
+    "caracteristicas": {
+      "cpu": "MediaTek Helio G99 Ultra",
+      "ram": "8 GB",
+      "disco": "256 GB"
+    }
+  },
+  {
+    "id": 6,
+    "nombre": "Apple Watch SE 2",
+    "precio": 269.00,
+    "precioOriginal": 329.00,
+    "descuento": 20,
+    "imagen": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=500&auto=format&fit=crop",
+    "valoracion": 4.8,
+    "opiniones": 102,
+    "caracteristicas": {
+      "cpu": "Apple S8 SiP",
+      "ram": "1 GB",
+      "disco": "32 GB"
+    }
+  },
+  {
+    "id": 7,
+    "nombre": "Amazfit GTR 3",
+    "precio": 119.00,
+    "precioOriginal": 169.00,
+    "descuento": 30,
+    "imagen": "https://images.unsplash.com/photo-1585386959984-a41552231693?w=500&auto=format&fit=crop",
+    "valoracion": 4.5,
+    "opiniones": 76,
+    "caracteristicas": {
+      "cpu": "Zepp OS Dual-Core",
+      "ram": "512 MB",
+      "disco": "4 GB"
+    }
+  },
+  {
+    "id": 8,
+    "nombre": "MacBook Air M2",
+    "precio": 1199.00,
+    "precioOriginal": 1299.00,
+    "descuento": 8,
+    "imagen": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop",
+    "valoracion": 4.9,
+    "opiniones": 210,
+    "caracteristicas": {
+      "cpu": "Apple M2",
+      "ram": "8 GB",
+      "disco": "512 GB SSD"
+    }
+  },
+  {
+    "id": 9,
+    "nombre": "Razer BlackWidow V4",
+    "precio": 179.00,
+    "precioOriginal": 239.00,
+    "descuento": 25,
+    "imagen": "https://images.unsplash.com/photo-1593642532744-d377ab507dc8?w=500&auto=format&fit=crop",
+    "valoracion": 4.7,
+    "opiniones": 42,
+    "caracteristicas": {
+      "cpu": "Microcontrolador Razer v3",
+      "ram": "1 MB",
+      "disco": "Interno no aplicable"
+    }
+  },
+  {
+    "id": 10,
+    "nombre": "JBL Charge 5",
+    "precio": 129.99,
+    "precioOriginal": 159.99,
+    "descuento": 18,
+    "imagen": "https://images.unsplash.com/photo-1585386959984-a41552231693?w=500&auto=format&fit=crop",
+    "valoracion": 4.6,
+    "opiniones": 89,
+    "caracteristicas": {
+      "cpu": "DSP Qualcomm QCC5124",
+      "ram": "256 MB",
+      "disco": "No aplica"
+    }
+  }
+]

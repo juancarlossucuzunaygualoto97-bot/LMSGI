@@ -1,0 +1,53 @@
+<html lang="en">
+<body>
+    <footer>
+        
+    </footer>
+</body>
+
+
+
+</html>
+<script>
+    //fectch es una funcion JS para leer un archivo JSON p //
+    //hacer una peticion http a una API 
+fetch (data/productos.jason)
+.then(response => response().json())
+.then (productos => {
+    //codigo ls
+    const contendor = document.getElementById("catalogo");
+    contenedor.innerHTML =
+    <h1>CATALOGO DE PRODUCTOS </h1>
+})
+//codigo ls
+const contendor = document.getElementById("catalogo");
+//Crea un objeto (nodo en html) <article>
+//el documento document (JS) y sirve para que JS acceda L/W al DOM del HTML
+//Se ejecutara tantas veces como productos haya en el articulo
+productos.forEach (producto => {
+const card = document.createElement("article"); //Crea un nodo html
+//contenedor.innerHTML = "Catalogo de Productos"
+//Escribo el contenido del article
+tarjeta.innerHTML = `
+
+<p class="badge">Envio gratis </p>
+<figure>
+    <img src="img/productos/movil.png" alt=Producto1"
+    </figure>
+`;
+//<article> <p> <figure> </article>    
+
+})
+
+
+const card = document.createElement("article"); //Crea un nodo html
+//contenedor.innerHTML = "Catalogo de Productos"
+//Escribo el contenido del article
+tarjeta.innerHTML = `
+
+<p class="badge">Envio gratis </p>
+<figure>
+    <img src="img/productos/movil.png" alt=Producto1"
+    </figure>
+`;
+//<article> <p> <figure> </article>
