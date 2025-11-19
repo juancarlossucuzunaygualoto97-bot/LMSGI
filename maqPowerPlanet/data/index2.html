@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPlanet</title>
-    <link rel="stylesheet" href="css/estilos copy.css">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -31,49 +31,9 @@
     <main>
         <h2>Lista de Productos que provienen de la API (BD)</h2>
         <section id="catalogo">
-            <article>
-                <p class="badge">Envio gratis</p>
-                <figure>
-                    <img src="img/productos/movil.png" alt="Producto 1" />
-                </figure>
-                <p class="nombre">Sansung galaxy tab S10+</p>
-                <p class="features">12.4'' 12GB/512GB 5G Plata</p>
-                <p class="valoraciones">
-                    <span class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </span>
-                    <span class="valoracion">44</span>
-                    <span class="opiniones">(7 opiniones)</span>
-                </p>
-                <div>
-                    <span class="dto">-15%</span>
-                    <span class="precios">
-                        <span class="pvr">49.99€</span>
-                        <span class="pvp">34.99€</span>
-                    </span>
-                </div>
-                <p class="stock">Stock</p>
-            </article>
-            <article>
-                <p class="badge">Envio gratis</p>
-                <figure>
-                    <img src="img/productos/movil.png" alt="Producto 1" />
-                </figure>
-                <p class="nombre">Sansung galaxy tab S10+</p>
-                <p class="features">12.4'' 12GB/512GB 5G Plata</p>
-                <p class="valoraciones">Valoracions/opiniones</p>
-                <div>
-                    <span>Descuento</span>
-                    <span>Precio</span>
-                </div>
-                <p class="stock">Stock</p>
-            </article>
             
         </section>
+
     </main>
     <footer>
         <nav id="sociales">
@@ -155,22 +115,41 @@
 </body>
 </html>
 <script>
-    fetch('data/productos.json')
-      .then(response => response.json())
-      .then(productos => {
-        const contenedor = document.getElementById('catalogo');
-        productos.forEach(p => {
-          const card = document.createElement('article');
-          card.className = 'producto';
-          card.innerHTML = `
-            <p class="badge">Envio gratis</p>
-            <figure>
-                <img src="${p.imagen}" alt="${p.nombre}">
-            </figure>
-            <p class="nombre">${p.nombre}</p>
-          `;
-          contenedor.appendChild(card);
-        });
-      })
-      .catch(error => console.error('Error al cargar productos:', error));
-  </script>
+    //Manipular el HMTL(usuario) <--> DOM (navegador) 
+    //fectch es un funcion JS para leer un archivo JSON o
+    //hacer una peticion http a una API
+    fetch('data/productos.json') //idem peticion a la api (BD)
+        .then(response => response.json())
+        .then(productos => {
+            //codigo js
+            const contenedor = document.getElementById('catalogo');
+            /* 
+                productos tiene todo el array de objetos json
+            */
+            // iterar RECORRER todos los productos del array
+            // se ejecutara tantas veces como productos (obejtos) haya en el array
+            // JS --> JS Moderno (EmacsScript 6)
+            //el array productos se recorre con un buble forEach
+            productos.forEach (producto => {
+                //crear un objeto (nodo en html) <article>
+                //el objeto document (JS) y sirve para que JS acceda L/W al DOM del HTML
+                const tarjeta = document.createElement('article'); //crea un nodo html --> <article> </article>
+                //contenedor.innerHTML = `Catalogo de Productos`;
+                //con innerHTML escribo el contenido del nodo <article> creado anteriormente
+                tarjeta.innerHTML = 
+                `
+                    <p class="badge">Envio gratis</p>
+                    <figure>
+                        <img src="img/productos/movil.png" alt="Producto 1" />
+                    </figure>
+                    <p class="nombre">${producto.nombre}</p>
+                    <p class="features">
+                        <span>${producto.caracteristicas.cpu}</span>
+                        <span>${producto.caracteristicas.ram}</span> 
+                        <span>${producto.caracteristicas.disco}</span> 
+                    </p>
+                `;
+                contenedor.appendChild(tarjeta)
+            })
+        })
+</script>
