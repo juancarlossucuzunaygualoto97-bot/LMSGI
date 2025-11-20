@@ -114,7 +114,7 @@ main section{ /* contenedor  */
 }
 main section article{ /* item */
     flex-basis: 20%; /* W/H segun el fleex-direction del padre */
-    border: 1px solid black;
+    border: 1px solid rgb(113, 32, 32);
     display: flex; /* contenedor */
     flex-direction: column;
     flex-wrap: nowrap;
@@ -132,7 +132,7 @@ main section article:hover{
 }
 
 main section article p{
-    color: red
+    color: rgb(2, 1, 1)
 }
 main section article .badge{
     position: absolute; /* uso particular: efectos especiales */
@@ -172,6 +172,16 @@ main section article .nombre{
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+main section article .features{
+ margin-top: 3px;
+ font-size: 8px;
+}
+main section article .features span{
+    /* border: 1px solid red; */
+    font-size: 12px;
+    text-align: center;
+    
+}
 main section article p {
     border: 0px solid black;
     display: flex;
@@ -182,46 +192,67 @@ main section article p {
 }
 main section article p .star i {
     font-size: 10px;
-    color: yellow;
-    margin-right: 3px;
+    color: rgb(137, 137, 14);
+    margin-right: 5px;
 }
 main section article p .valoracion {
     font-size: 10px;
-    color: red;
-    margin-right: 3px;
+    color: rgb(119, 17, 17);
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 main section article p .opiniones{
     font-size: 10px;
-    color: green;
+    color: rgb(20, 106, 20);
 }
 main section article div {
     margin: 5px 0px 5px 0px;
     border: 0px solid red;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between  ;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
     width: 100%;
+}
+main section article div .pvr{
+    color:gray;
+    font-size: 11px;
+    font-weight: bold;
+}
+main section article div .pvp{
+    font-weight: bold;
+    font-size: 22px;
+}
+main section article .envio{
+    color: blueviolet;
+    font-weight: bold;
+}
+main section article .preciospadre{
+    border:0px solid rgb(125, 42, 42);
+    display: flex;
+    flex-direction: row;
 }
 main section article div .dto{
     background-color: rgb(183,67,139);
-    color: black;
+    color: white;
+    font-weight: bold;
     padding: 2px;
     border-radius: 7px;
-    font-size: 12px;
-    height: 50%;
+    font-size: 11px;
+    height: 38%;
+    margin-top: 13px;
 }
 main section article div .precios{
     display: flex;
-    flex-direction: column;
-    border: 0px solid black
+    flex-direction: row;     
+    border: px solid rgb(183, 101, 101)
 }
-main section article div .precion .pvr {
-    
+main section article div .precios .pvr {
+    color: aqua;
 }
 main section article div .precios .pvp {
-    font-size: 20px;
+    font-size: 60px;
     font-weight: bold;
 }
 footer{
@@ -248,7 +279,7 @@ footer nav#sociales{
 footer nav#sociales a { /* estado reposo fotograma */
     text-decoration: none;
     border: 0px solid black; 
-    background-color: lightgreen;
+    background-color: rgb(94, 186, 94);
     /* elemento en linea pero con propiedades de bloque */
     display: inline-block;
     
@@ -317,3 +348,5 @@ footer article nav a i{
 footer article nav a span {
     font-size: 18px;
 }
+
+

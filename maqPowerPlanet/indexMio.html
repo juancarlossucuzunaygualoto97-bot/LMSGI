@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPlanet</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/IndexMIO.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -117,7 +118,7 @@
 <script>
     //Manipular el HMTL(usuario) <--> DOM (navegador) 
     //fectch es un funcion JS para leer un archivo JSON o
-    //hacer una pe     loticion http a una API
+    //hacer una peticion http a una API
     fetch('data/productos.json') //idem peticion a la api (BD)
         .then(response => response.json())
         .then(productos => {
@@ -137,8 +138,7 @@
                 //contenedor.innerHTML = `Catalogo de Productos`;
                 //con innerHTML escribo el contenido del nodo <article> creado anteriormente
                 tarjeta.innerHTML = 
-                `
-                    <p class="badge">Envio gratis</p>
+                ` <p class="badge">Envio gratis</p>
                     <figure>
                         <img src="${producto.imagen}" alt="Producto 1" />
                     </figure>
@@ -170,10 +170,11 @@
                     <p class="envio">
                             <i class="fa-solid fa-rocket"></i>Recibelo el lunes 13 de Oct. 
                             </p>
-                        
-
+                   
                 `;
                 contenedor.appendChild(tarjeta)
             })
         })
 </script>
+
+
