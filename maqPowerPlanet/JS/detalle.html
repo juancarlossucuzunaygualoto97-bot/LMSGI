@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="/MIO/maqPowerPlanet/css/detalles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div id="menu">
             <i class="fa-solid fa-bars"></i>
         </div>
         <figure>
-            <img src="/MIO/maqPowerPlanet/img/logo.png" alt="Logo PowerPlanet">    
+            <img src="/MIO/maqPowerPlanet/img/logo.png" alt="Logo PowerPlanet">
         </figure>
         <form>
             <input type="search" placeholder="Buscar...">
@@ -24,16 +25,80 @@
             <a href="#">Contactanos</a>
             <a href="#">ES</a>
         </nav>
-        <div id="carrito"> 
+        <div id="carrito">
             <i class="fa-solid fa-cart-shopping"></i>
             <i class="fa-solid fa-user"></i>
         </div>
-    </header> 
-    <main>
-        <h2>Lista de Productos que provienen de la API (BD)</h2>
-        <section id="catalogo">
-            
+    </header>
+    <main id="detalle">
+
+        <nav id="ruta">
+            <a href="#">TVA y Video</a> >
+            <a href="#">Televisores Smart TV</a> >
+            <a href="#">Televisores Xiaomi</a>
+        </nav>
+        ' <section id="miniaturas">
+
+            <nav id="miniaturas">
+                <img
+                    src="https://www.powerplanetonline.com/cdnassets/products/100329/tv-xiaomi-32-a-pro-2026-hd-qled-google-tv-dolby-au-negro-1_l.jpg">
+                <img
+                    src="https://www.powerplanetonline.com/cdnassets/products/100329/tv-xiaomi-32-a-pro-2026-hd-qled-google-tv-dolby-au-negro-3_ad_l.jpg">
+                <img
+                    src="https://www.powerplanetonline.com/cdnassets/products/100329/tv-xiaomi-32-a-pro-2026-hd-qled-google-tv-dolby-au-negro-2_ad_l.jpg">
+                <img
+                    src="https://www.powerplanetonline.com/cdnassets/products/100329/tv-xiaomi-32-a-pro-2026-hd-qled-google-tv-dolby-au-negro-4_ad_l.jpg">
+            </nav>
         </section>
+        <section id="principal">
+            <figure id="imgPrincipal">
+                <img src="/ASIR/DFlex/1-PowerPlanet/img/productos/xiaomi.png"
+                    alt="Xiaomi TV">
+            </figure>
+        </section>
+
+
+        <article id="info">
+
+            <h2>Xiaomi TV A Pro 2026 32" HD QLED Dolby Audio – Google TV</h2>
+
+            <div id="valoracion">
+                <span class="star"><i class="fa-solid fa-star"></i></span>
+                <span class="star"><i class="fa-solid fa-star"></i></span>
+                <span class="star"><i class="fa-solid fa-star"></i></span>
+                <span class="star"><i class="fa-solid fa-star"></i></span>
+                <span class="star"><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="texto">5.0 (10 opiniones)</span>
+            </div>
+
+            <div id="precios">
+                <span id="descuento">-27%</span>
+                <span id="precioActual">151,90€</span>
+                <span id="precioTachado">209,90€</span>
+            </div>
+
+            <nav id="detallesEnvio">
+                <span><i class="fa-solid fa-truck"></i> Envío desde 8,95€</span>
+                <span><i class="fa-solid fa-arrow-rotate-left"></i> Devolución gratis hasta 8 de febrero</span>
+                <span><i class="fa-solid fa-shield"></i> Garantía: 3 años</span>
+            </nav>
+
+            <article id="botones">
+                <h3>Tamaño</h3>
+                <nav id="selector">
+                    <button class="tam selected">32"</button>
+                    <button class="tam">43"</button>
+                    <button class="tam">55"</button>
+                </nav>
+            </article>
+
+            <article id="compra">
+                <button id="comprarAhora">¡COMPRAR AHORA!</button>
+            </article>
+
+        </article>
+
+
 
     </main>
     <footer>
@@ -53,7 +118,7 @@
         </nav>
         <div id="subscribete">
             <h2>¡SUSCRÍBETE A POWEROFERTAS!</h2>
-            <input type="email" placeholder="Introduce tu email">    
+            <input type="email" placeholder="Introduce tu email">
         </div>
         <article>
             <h3>Condiciones de Compra</h3>
@@ -93,23 +158,25 @@
                 <a href="#">
                     <i class="fa-solid fa-building-columns"></i>
                     <span>Centros educativos y administraciones públicas</span>
-                </a>    
-
-            </nav>    
+                </a>
+            </nav>
         </article>
         <article>
             <h3>Distribuidores</h3>
             <nav>
                 <a href="#">¿Qué envíos hay disponibles en Powerplanetonline?</a>
                 <a href="#">Condiciones generales</a>
-            </nav>    
+            </nav>
         </article>
         <article>
             <h3>Informacion General</h3>
             <nav>
                 <a href="#">¿Qué envíos hay disponibles en Powerplanetonline?</a>
                 <a href="#">Condiciones generales</a>
-            </nav>    
+            </nav>
         </article>
-        
     </footer>
+
+</body>
+
+</html>
