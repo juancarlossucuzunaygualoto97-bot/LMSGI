@@ -33,7 +33,8 @@
     <main id="detalle">
 
         <nav id="ruta">
-            <a href="#">TVA y Video</a> >
+            <a href="#">TV y Video</a> >
+            <I></I>
             <a href="#">Televisores Smart TV</a> >
             <a href="#">Televisores Xiaomi</a>
         </nav>
@@ -180,3 +181,82 @@
 </body>
 
 </html>
+<script>
+// Manipular el HTML <--> DOM
+fetch('data/producto.json')
+    .then(response => response.json())
+    .then(productos => {
+
+        ;
+
+        // Recorrer todos los productos
+        productos.forEach(producto => {
+
+            const tarjeta = document.createElement('article');
+
+            tarjeta.innerHTML = `
+                <p class="badge">Envío gratis</p>
+
+                <figure>
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                </figure>
+
+                <p class="nombre">${producto.nombre}</p>
+
+                <p class="valoraciones">
+                    <span class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="valoracion">${producto.valoracion}</span>
+                    <span class="opiniones">(${producto.opiniones})</span>
+                </p>
+
+                <div class="preciospadre">
+                    <span class="dto">-${producto.descuento}%</span>
+
+                    <div class="precios">
+                        <span class="pvr">PVR <s>${producto.precioOriginal}€</s></span>
+                        <span class="precio">${producto.precioActual}€</span>
+                    </div>
+                </div>
+
+                <p class="envio">
+                    <i class="fa-solid fa-rocket"></i> ${producto.envio}
+                </p>
+            `;
+
+            contenedor.appendChild(tarjeta);
+        });
+    });
+    
+</script>
+<script>
+// Obtener los parametros de la URL 
+const urlParmans = new URLSearchParams(window.location.search);
+//Obtener el parametro 'id'
+const idProducto = parseInt(urlParmans.get('id'))
+//comprobar que el id llega al detalle.html a traves de la URL
+console.log ("--->", idProducto)
+fetch('./data/producto.json')
+.then(response => reponse.json())
+.then ( productos => {})
+//buscar producto en array productos
+const producto = productos.find(p => p.id === idProd)
+console.log("-1->",producto)
+console.log("-2->", producto.nombre, producto.precio)
+
+//Actualiza nombre
+document.getElementById('nombre').textContent = producto.nombre;
+//document.getElementById('dto').textContent = `- ${producto.descuento}    %' ;
+  document.getElementById('nombre').textContent = producto.nombre;
+            document.getElementById('dto').textContent = `- ${producto.descuento}  %`;
+            
+            //cambiar portada
+            document.getElementById('foto').setAttribute("src", producto.imagen);
+
+
+

@@ -119,7 +119,7 @@
     //Manipular el HMTL(usuario) <--> DOM (navegador) 
     //fectch es un funcion JS para leer un archivo JSON o
     //hacer una peticion http a una API
-    fetch('data/productos.json') //idem peticion a la api (BD)
+    fetch('data/producto.json') //idem peticion a la api (BD)
         .then(response => response.json())
         .then(productos => {
             //codigo js
@@ -173,8 +173,18 @@
                    
                 `;
                 contenedor.appendChild(tarjeta)
+
+            
+                tarjeta.addEventListener('click', () => {
+                window.location.href=`detalle.html?id=${producto.id}`;
+                });
             })
         })
+        
 </script>
+
+
+
+
 
 
