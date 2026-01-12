@@ -68,6 +68,7 @@ header nav{
     flex-wrap: nowrap;
     justify-content: space-around; /* alineacion en eje principal */
     align-items: center; /* alineacion en eje secundario */
+    border: 1px solid white;
 }
 header nav a{
     display: none;

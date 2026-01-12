@@ -133,19 +133,19 @@ main #ruta a:hover{
 
 #galeria #imgPrincipal{
     width: 100%;
-    height: 350px;
+    height: 750px;
     display: flex;
     justify-content: center;
 }
 
 #imgPrincipal{
     width: 80%;
-    border: 1px solid black;
+    border: 1px solid rgb(119, 21, 21);
 }
 
-#imgPrincipal img{
-    width: 100%;
-    height: 100%;
+main #imagen{
+    width: 200px;
+    height: 700%;
 }
 
 #miniaturas{
@@ -153,7 +153,7 @@ main #ruta a:hover{
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    height: 20%;
+    height: 750%;
 }
 
 #miniaturas img{
@@ -207,7 +207,7 @@ main #ruta a:hover{
 }
 
 
-#precios{
+#precio{
     display: flex;
     flex-direction: row;
     gap: 12px;
@@ -215,7 +215,7 @@ main #ruta a:hover{
     border: 1px solid black;
 }
 
-#precios #descuento{
+#precio #descuento{
     background-color: rgb(183,67,139);
     color: white;
     padding: 5px 10px;
@@ -223,13 +223,13 @@ main #ruta a:hover{
     font-weight: bold;
 }
 
-#precios #precioActual{
+#precio #precioActual{
     font-size: 28px;
     font-weight: bold;
     color: #000;
 }
 
-#precios #precioTachado{
+#precio #precioTachado{
     font-size: 16px;
     color: #777;
     text-decoration: line-through;

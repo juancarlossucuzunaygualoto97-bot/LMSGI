@@ -1,0 +1,44 @@
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+}
+h1{
+    text-align: center;
+}
+header nav{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+}
+header nav a{
+    color: white;
+    border: 0px solid black;
+    text-decoration: none;
+    border: 1px solid white;
+    margin-top: 10px;
+    padding: 10px;
+}
+header nav a :hover{
+text-decoration: underline;
+background-color: rgb(255, 255, 255, 0.1);
+}
+
+
+
+header button{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

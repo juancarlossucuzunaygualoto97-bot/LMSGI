@@ -54,7 +54,7 @@
         </section>
         <section id="principal">
             <figure id="imgPrincipal">
-                <img src="/ASIR/DFlex/1-PowerPlanet/img/productos/xiaomi.png"
+                <img id="imagen" src="/ASIR/DFlex/1-PowerPlanet/img/productos/xiaomi.png"
                     alt="Xiaomi TV">
             </figure>
         </section>
@@ -62,7 +62,7 @@
 
         <article id="info">
 
-            <h2>Xiaomi TV A Pro 2026 32" HD QLED Dolby Audio – Google TV</h2>
+            <h2 id="nombre">TV A Pro 2026 32" HD QLED Dolby Audio – Google TV</h2>
 
             <div id="valoracion">
                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -73,7 +73,7 @@
                 <span class="texto">5.0 (10 opiniones)</span>
             </div>
 
-            <div id="precios">
+            <div id="precio">
                 <span id="descuento">-27%</span>
                 <span id="precioActual">151,90€</span>
                 <span id="precioTachado">209,90€</span>
@@ -182,67 +182,15 @@
 </body>
 
 </html>
-<script>
-// Manipular el HTML <--> DOM
-fetch('data/producto.json')
-    .then(response => response.json())
-    .then(productos => {
 
-        ;
-
-        // Recorrer todos los productos
-        productos.forEach(producto => {
-
-            const tarjeta = document.createElement('article');
-
-            tarjeta.innerHTML = `
-                <p class="badge">Envío gratis</p>
-
-                <figure>
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                </figure>
-
-                <p class="nombre">${producto.nombre}</p>
-
-                <p class="valoraciones">
-                    <span class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </span>
-                    <span class="valoracion">${producto.valoracion}</span>
-                    <span class="opiniones">(${producto.opiniones})</span>
-                </p>
-
-                <div class="preciospadre">
-                    <span class="dto">-${producto.descuento}%</span>
-
-                    <div class="precios">
-                        <span class="pvr">PVR <s>${producto.precioOriginal}€</s></span>
-                        <span class="precio">${producto.precioActual}€</span>
-                    </div>
-                </div>
-
-                <p class="envio">
-                    <i class="fa-solid fa-rocket"></i> ${producto.envio}
-                </p>
-            `;
-
-            contenedor.appendChild(tarjeta);
-        });
-    });
-    
-</script>
-<script>
+<!-- <script>
 // Obtener los parametros de la URL 
 const urlParmans = new URLSearchParams(window.location.search);
 //Obtener el parametro 'id'
 const idProducto = parseInt(urlParmans.get('id'))
 //comprobar que el id llega al detalle.html a traves de la URL
-console.log ("--->", idProducto)
-fetch('./data/producto.json')
+console.log ("-", idProducto)
+<!-fetch('./data/producto.json')
 .then(response => reponse.json())
 .then ( productos => {})
 //buscar producto en array productos
@@ -257,7 +205,37 @@ document.getElementById('nombre').textContent = producto.nombre;
             document.getElementById('dto').textContent = `- ${producto.descuento}  %`;
             
             //cambiar portada
-            document.getElementById('foto').setAttribute("src", producto.imagen);
+            document.getElementById('foto').setAttribute("src", producto.imagen); --> 
+            <script>
+    // 1-. Obtener los parametros de la URL
+    const urlParametro = new URLSearchParams(window.location.search);
+    // 2-. Obtener el parametro 'id'
+    const idProducto = parseInt(urlParametro.get('id'))
+    //comprobar que el id llega al detalle.html a traves de la URL
+    console.log ("--->", idProducto)
+    fetch ('/data/jcsglibros.json')
+    // const producto = await fetch('./data/productos.json') //Lo intente con await y tuve problemas
+        .then(response => response.json())
+        .then (productos => {
+            // console.log("--1--",producto)
+            // console.log("--2--",producto.nombre)
+
+            const producto = productos.find(p => p.id === idProducto);
+        //     return producto;
+        // });
+
+            document.getElementById('nombre').textContent = producto.nombre;
+            document.getElementById('imagen').setAttribute("src", producto.imagen)
+            document.getElementById('nvaloraciones').textContent=producto.valoracion;
+            document.getElementById('comentarios').textContent=`( ${producto.opiniones}  opiniones )`;
+            document.getElementById('descuento').textContent=`- ${producto.descuento}  % `;
+        
+            document.getElementById('producto_pvo').textContent=`${producto.precio} € `;
+            document.getElementById('producto_pvp').textContent=`Precio Recomendado: ${producto.precioOriginal} €  `;
+
+            document.getElementById('imagen').setAttribute("src", producto.imagen)
+        })
+</script>
 
 
 
