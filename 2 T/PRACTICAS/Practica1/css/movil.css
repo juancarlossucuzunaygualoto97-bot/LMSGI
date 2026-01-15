@@ -42,3 +42,24 @@ header button{
     border: none;
     cursor: pointer;
 }
+section{
+    background-color: gainsboro;
+    flex-basis: 30%;
+}
+main nav{
+    background-color: white;
+    min-height: 30vh;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    border: 2px solid blue;
+}
+main aside{
+    background-color: cadetblue;
+}
+main div{
+    flex-basis: 70%;
+}
