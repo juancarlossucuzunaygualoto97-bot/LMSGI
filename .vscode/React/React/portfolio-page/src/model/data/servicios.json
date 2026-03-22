@@ -1,0 +1,51 @@
+
+[
+    {
+        "id": 1,
+        "titulo": "Fusión de Fibra",
+        "categoria": "Redes de Comunuicaciones",
+        "descripcion": "La fusión de fibra óptica es un proceso que consiste en unir dos fibras ópticas para crear una conexión continua. Este proceso se realiza utilizando una máquina de fusión que alinea y fusiona las fibras mediante calor o electricidad. La fusión de fibra es esencial para garantizar una transmisión de datos eficiente y sin pérdidas en redes de comunicaciones, ya que minimiza la atenuación y la dispersión de la señal, permitiendo así una mayor capacidad y velocidad de transmisión.",
+        "imagen": "https://i.ytimg.com/vi/eZvch8olt68/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAFkgvj_REaZXZXAZOoiN15MOZ-9g",
+        "tecnologias": ["Fusión de Fibra", "Redes de Comunicaciones", "Fujikura 310S"]
+    },
+    {
+        "id": 2,
+        "titulo": "Configuración de Routers Cisco",
+        "categoria": "Redes de Comunuicaciones",
+        "descripcion": "La configuración de routers Cisco implica la instalación y ajuste de dispositivos de red fabricados por Cisco Systems para gestionar el tráfico de datos en una red. Esto incluye la asignación de direcciones IP, la configuración de protocolos de enrutamiento, la implementación de medidas de seguridad y la optimización del rendimiento de la red. Los routers Cisco son ampliamente utilizados en entornos empresariales y ofrecen una amplia gama de características para garantizar una conectividad eficiente y segura.",
+        "imagen": "https://mercadoit.com/wp-content/uploads/2017/11/cisco-routers.jpg",
+        "tecnologias": ["Routers", "Redes de Comunicaciones", "Cisco ISR 4000 Series"]
+    },
+    {
+        "id": 3,
+        "titulo": "Desarrollo de Aplicaciones Web Microservicios",
+        "categoria": "Desarrollo de Software",
+        "descripcion": "El desarrollo de aplicaciones web basadas en microservicios implica la creación de aplicaciones que se componen de múltiples servicios pequeños e independientes, cada uno de los cuales realiza una función específica. Estos microservicios se comunican entre sí a través de API y pueden ser implementados y escalados de forma independiente. Este enfoque permite una mayor flexibilidad, escalabilidad y resiliencia en el desarrollo de aplicaciones, ya que los equipos pueden trabajar en diferentes servicios simultáneamente y realizar cambios sin afectar a toda la aplicación.",
+        "imagen": "https://learn.microsoft.com/es-es/dotnet/architecture/microservices/multi-container-microservice-net-applications/media/microservice-application-design/multi-architectural-patterns-polyglot-microservices.png",
+        "tecnologias": ["Microservicios", "NestJS", "Redes Nats"]
+    },
+    {
+        "id": 4,
+        "titulo": "Despliegue de Aplicaciones en la Nube",
+        "categoria": "Despliegue de Aplicaciones",
+        "descripcion": "El despliegue de aplicaciones en la nube implica la implementación de aplicaciones en entornos de nube, lo que permite una mayor escalabilidad, flexibilidad y accesibilidad. Este proceso incluye la configuración de la infraestructura en la nube, la gestión de recursos y la optimización del rendimiento de las aplicaciones. Las soluciones en la nube permiten a las organizaciones reducir costos, mejorar la colaboración y acelerar el desarrollo de aplicaciones.",
+        "imagen": "https://www.profesionalreview.com/wp-content/uploads/2020/02/Almacenamiento-en-la-nube.png",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    },
+    {
+        "id": 5,
+        "titulo": "Administración de Kubernetes",
+        "categoria": "Despliegue de Aplicaciones",
+        "descripcion": "La administración de Kubernetes implica la gestión y orquestación de contenedores en un clúster de Kubernetes. Esto incluye la implementación de aplicaciones, la escalabilidad de los servicios, la gestión del almacenamiento y la configuración de redes. Kubernetes es una plataforma de código abierto que permite a los desarrolladores y operadores automatizar el despliegue, la operación y la escalabilidad de aplicaciones en contenedores.",
+        "imagen": "https://cdn.adrformacion.com/teleusers/vid_presentacion_cursos/courseImage_KUBERNETES_1707826504_.jpg",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    },
+    {
+        "id": 56,
+        "titulo": "Programación de Microservicios con NestJS",
+        "categoria": "microservicios, NestJS",
+        "descripcion": "La administración de Kubernetes implica la gestión y orquestación de contenedores en un clúster de Kubernetes. Esto incluye la implementación de aplicaciones, la escalabilidad de los servicios, la gestión del almacenamiento y la configuración de redes. Kubernetes es una plataforma de código abierto que permite a los desarrolladores y operadores automatizar el despliegue, la operación y la escalabilidad de aplicaciones en contenedores.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/37/NestJS-logo-wordmark.svg",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    }
+]
