@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Librería Caronte Sistemas</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ======= HEADER ======= -->
+  <header>
+    <nav class="user">
+      <a class="cliente" href="#">
+        <i class="fa-brands fa-servicestack"></i>
+        <span>Atencion al cliente</span>
+      </a>
+      <a class="cuenta" href="#">
+        <i class="fa-solid fa-user"></i>
+        <span>Mi Cuenta</span>
+      </a> 
+      <a class="cesta" href="#">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>Mi Cesta</span>
+      </a> 
+    </nav>
+    <figure id="logo">
+        <img src="img/logo.jpeg" alt="logo">
+    </figure>
+    <h1>Librería Caronte Sistemas</h1>
+    <nav class="menu">
+      <a href="src/filtro.html?categoria='bases de datos'">
+        <i class="fa-solid fa-database"></i>
+        <span>Bases de Datos</span>
+      </a>
+      <a href="src/filtro.html?categoria='programacion'">
+        <i class="fa-solid fa-code"></i>
+        <span>Programación</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-lock"></i>
+        <span>Ciberseguridad</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-cloud"></i>
+        <span>DevOps</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="catalogo" class="catalogo">
+      <!-- <article class="libro-card">
+        <figure>
+          <img class="portada" src="https://m.media-amazon.com/images/I/61yffUdBDxL._AC_UF1000,1000_QL80_.jpg" alt="portada libro">
+        </figure>
+        <p class="categoria">CiberSeguridad</p>
+        <h3 class="titulo">INTELIGENCIA ARTIFICIAL JUGAR O ROMPER LA BARAJA</h3>
+        <p class="autor">GARCIA PADILLA MARGARITA</p>
+        <p class="precio">20,00 €</p>
+        <button class="btn-comprar">Comprar</button>
+      </article> -->
+     
+    </section>
+  </main>
+  <!-- ======= END MAIN ======= -->
+
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <p>Síguenos en redes</p>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+  <!-- ======= END FOOTER ======= -->
+
+  <script>
+    fetch('data/libros.json') //idem peticion a la api (BD)
+      .then(response => response.json())
+      .then(libros => {
+          //codigo js
+          const catalogo = document.getElementById('catalogo');
+          libros.forEach (libro => {
+              const card = document.createElement('article'); //crea un nodo html --> <article> </article>
+              //contenedor.innerHTML = `Catalogo de Productos`;
+              //con innerHTML escribo el contenido del nodo <article> creado anteriormente
+              card.innerHTML = 
+              `
+                  <figure>
+                    <img class="portada" src="${libro.imagen}">
+                  </figure>
+                  <p class="categoria"> ${libro.categoria}</p>
+                  <h3 class="titulo">Título: ${libro.nombre}</h3>
+                  <p class="autor">Autor: ${libro.autor}</p>
+                  <p class="precio">${libro.precio} €</p>
+                  <button class="btn-comprar">Comprar</button>
+              `;
+              card.addEventListener('click', () => {
+                    //creamos el parametros codigo = id del producto
+                    window.location.href = `src/detalle.html?isbn=${libro.isbn}`;
+              }); 
+              catalogo.appendChild(card);
+            });
+    })
+  </script>
+</body>
+
+</html>

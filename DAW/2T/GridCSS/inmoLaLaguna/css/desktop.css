@@ -1,0 +1,9 @@
+header {
+    grid-template-areas: 
+        " Logo loginTfno loginTfno navSociales navSociales "
+        " Logo Titulos Direcciones Direcciones Direcciones"
+        " Logo MenuPpal MenuPpal MenuPpal MenuPpal";
+    ;
+    grid-template-columns: 1fr 3fr 3fr 1fr 2fr;
+    grid-template-rows: 30px 100px 50px;
+}

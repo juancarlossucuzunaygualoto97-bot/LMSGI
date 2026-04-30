@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPlanet</title>
+    <link rel="stylesheet" href="css/detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <figure>
+            <img src="img/logo.png" alt="Logo PowerPlanet">    
+        </figure>
+        <form>
+            <input type="search" placeholder="Buscar...">
+        </form>
+        <nav>
+            <a href="#">Ofertas Limitadas</a>
+            <a href="#">Contactanos</a>
+            <a href="#">ES</a>
+        </nav>
+        <div id="carrito"> 
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header> 
+    <main>
+        <nav id="breadcrumb">
+            <a href=#>
+                <i class="fa-solid fa-house"></i>
+            </a> &gt;  
+            <a href="http://127.0.0.1:5501/DAW/DFlex/1-PowerPlanet/index.html">Smartphones</a> &gt;
+            <a href="#">Moviles</a> &gt;
+            <a href="#">One Plus 13</a>
+        </nav>
+       
+        <figure id="thumbnails">
+            
+        </figure>
+        <figure id="portada">
+            <div class="badges">
+                <div class="badge-friday">FRESH FRIDAY</div>
+                <div class="badge-envio">Envío gratis</div>
+            </div>
+            <img  id="foto"
+                  src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_512gb_negro_01_l.jpg" alt="Cubot KingKong X">
+        </figure>
+        <article id="caracteristicas">
+            <h1 id="nombre">Cubot KingKong X 16GB/256GB Negro</h1>
+            <div class="valoraciones">
+                <span class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="nvaloraciones">5</span>
+                <span class="comentarios">(3 opiniones)</span>
+            </div>
+            <div class="price-section">
+                <span id="dto" class="descuento">-35%</span>
+                <span class="pvr">284,99€</span>
+            </div>
+            <div>
+                <p class="pvp">Precio recomendado: 439,00€</p>
+                <p style="color: #999; font-size: 13px;">Los precios incluyen IVA</p>
+            </div>
+
+            <a href="#" class="brand">CUBOT</a>
+            <p style="color: #666; font-size: 13px;">REF: CUBOT-KINGKONGX-16GB-256GB</p>
+
+            <div class="availability">
+                <div class="icon-delivery">🚚</div>
+                <div class="availability-info">
+                    <strong>Disponibilidad: ¡En stock! Recíbelo mañana Miércoles, 26 Nov.</strong>
+                    <span>Envío : ¡Gratis!</span>
+                    <span>Devolución Gratis: Hasta 8 de Febrero</span>
+                    <span>Garantía: 3 años</span>
+                </div>
+            </div>
+        </article>
+     
+       
+    </main>
+</body>
+
+<script>
+    
+    //1-. *** Obtener el id del producto en la URL ******
+      // a-. Obtener los parametros de la URL
+    const urlParmans = new URLSearchParams(window.location.search);
+      // b-. Obtener el parametro 'id'
+    const idProd = parseInt(urlParmans.get('id'))
+      // c-. comprobar que el id llega al detalle.html a traves de la URL
+    console.log ("--->", idProd)
+
+    //2-. **** Obtener el objeto producto del array productos.json que tenga ese id
+    fetch('./data/productos.json')
+        .then(response => response.json())
+        .then ( productos => {
+            //buscar producto en array productos. select * from productos where p.id == $idProd (url)
+            const producto = productos.find(prod => prod.id === idProd);
+            
+            console.log("-1->",producto)
+            console.log("-2->", producto.nombre, producto.precio)
+           
+           
+            // aActualiza nombre
+            document.getElementById('nombre').textContent = producto.nombre;
+            document.getElementById('dto').textContent = `- ${producto.descuento}  %`;
+            
+            //cambiar portada
+            document.getElementById('foto').setAttribute("src", producto.imagen);
+
+            // **** galeria dinamica ****
+            
+            const galeria = document.getElementById('thumbnails');
+            galeria.innerHTML='';
+            producto.galeria.forEach(img => {
+                let imagen = document.createElement('img');
+                imagen.setAttribute("src", img)
+                galeria.appendChild(imagen)
+            })
+        })
+
+       
+</script>

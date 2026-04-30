@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design con Mobile First</title>
+    <!-- Siempre se carga primero el CSS para móviles -->
+    <link rel="stylesheet" href="css/movil.css">
+    <!-- Luego se cargan los CSS para tablets -->
+    <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px)">
+    <!-- Finalmente se cargan los CSS para ordenadores de escritorio -->
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1024px)">
+</head>
+<body>
+    <header>
+        <h1>Mi sitio web</h1>
+        <figure>
+            <img width="100px" src="img/logo.png" alt="Logo de la empresa">
+        </figure>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Acerca de</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <button>Registrarse</button>
+    </header>
+    <main>
+        <nav>
+            Menu Lateral
+        </nav>
+        <div id="col2">
+            <section>
+                Contenido Principal
+            </section>
+            <aside>
+                Informacion Adicional
+            </aside>
+        </div>
+        
+    </main>
+    <footer>
+        FOOTER
+    </footer>
+</body>
+</html>

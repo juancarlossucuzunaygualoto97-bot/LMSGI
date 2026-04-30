@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPlanet</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <figure>
+            <img src="img/logo.png" alt="Logo PowerPlanet">
+        </figure>
+        <form> <!-- Formulario web -->
+            <input type="search" placeholder="Buscar Articulo ...">
+        </form>
+        <nav>
+            <a href="#">Ofertas Limitadas</a>
+            <a href="#">Contactanos</a>
+            <a href="#">ES</a>
+        </nav>
+        <div id="carrito"> 
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header>
+    <main>
+        <section id="catalogo">
+            <article>
+                <p class="envio">Envio Gratis</p>
+                <figure>
+                    <img width= "100px" src="img/productos/ipad.jpg" />
+                </figure>
+                <p class="nombre">Apple Ipad Pro</p>
+                <p class="caracteristicas">
+
+                    128GB WiFi iPadOS 18 Plata</p>
+                <div class="valoraciones">
+                    <span class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="nvaloraciones">150</span>
+                    <span class="comentarios">(45 opiniones)</span>
+                </div>
+                <div precios>
+                    <span class="dto"> 15% </span>
+                    <span class="pvr"> 400€</span>
+                    <span class="pvp"> 369.90€</span>
+                </div>
+                <div class="recibe">
+                        recibelos
+                </div>
+            </article>
+            
+            
+        </section>
+    </main>
+    <footer>
+        <nav id="sociales">
+            <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </nav>
+        <div id="subscribete">
+            <h2>¡SUSCRÍBETE A POWEROFERTAS!</h2>
+            <input type="email" placeholder="Introduce tu email">    
+        </div>
+        <article>
+            <h3>Condicones de Compra</h3>
+            <nav>
+                <a href="#">
+                    <i class="fa-solid fa-car"></i>
+                    <span>¿Qué envíos hay disponibles en Powerplanetonline?</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>¿Cómo puedo Pagar a plazos en Powerplanet?</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Condiciones generales</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-wrench"></i>
+                    <span>Devolución, Garantías y Reparación</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Política de privacidad</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-cookie"></i>
+                    <span>Política de cookies</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-tablet-screen-button"></i>
+                    <span>¡Compra desde la APP! Más ventajas</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Empleo</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Centros educativos y administraciones públicas</span>
+                </a>    
+
+            </nav>
+        </article>
+        <article>
+            <h3>Distribuidores</h3>
+            <nav>
+                <a href="#">Distribución al por mayor</a>
+            </nav>
+        </article>
+        <article>
+            <h3>Informacion General</h3>
+            <nav>
+                <a href="#">¿Dudas? contacta</a>
+            </nav>
+        </article>
+     </footer>
+</body>
+</html>
+
+<!-- Codigo Javascript para listar los productos -->
+<!-- Navegador web: Brave, Firefox, Chrome, Safaris: 
+        codigo que ejecutan: (pagina web)
+        - HTML5 -> almacenar o definir la datos (estructura) 
+        - CSS.  -> estilos o la presentacion visual del html (datos)
+        - JS.   -> Manipular (añadir/eliminar nodos html) la estuctura del html   
+-->
+<script>
+    /* 
+        DOM -> Modelo de Objetos del Documento (estructura interna)
+        * contiene todo el HTML de la pagina, para poder manipular ese HTML
+        * el objeto JS document contiente todo el DOM del html para modificarlo/consultarlo
+    */
+    /* = -> operador asignacion */ 
+    /* - getElementById: almacenar en contSection -> <section id='catalogo'> */
+    const contSeccion = document.getElementById('catalogo');
+    /* - innerHTML -> Escribir el Contenido de contSeccion 
+                      elimina lo que hubiese antes */
+   /*
+    contSeccion.innerHTML = 
+    `
+        <h1>Catologo de Articulos </h1>
+    `;
+*/
+    /* - createElement -> un nodo html vacio
+            tarjeta -> <article> </article> */
+    /*
+    const tarjeta = document.createElement('article');
+    const tarjeta2 = document.createElement('article');
+    const tarjeta3 = document.createElement('article');
+    
+    tarjeta.innerHTML=`articulo1`;
+    tarjeta2.innerHTML=`articulo2`;
+    tarjeta3.innerHTML=`articulo3`;
+    
+    contSeccion.appendChild(tarjeta);
+    contSeccion.appendChild(tarjeta2);
+    contSeccion.appendChild(tarjeta3);
+*/
+/* funcion para leer un archivo json o consultar una api */
+    fetch('./data/productos.json')
+        .then(response => response.json())
+        // productos -> todo el array de objetos
+        .then ( productos => {
+            // recorro el array. Se ejecuta 10 veces
+            productos.forEach( producto => {
+                // en producto tendre cada producto del array
+                const tarjeta = document.createElement('article');
+                // Generar estrellas según la valoración (0–5)
+               
+    //******* generación de estrellas de forma dinamica ********
+                //codigo JS para generar dinamicax el numero de estrellas
+                //en funcion del campo valoracion del producto
+                const maxEstrellas = 5; //crear una constante (maxEstrellas no cambia)
+                let estrellasHTML = ''; //variable que contiene el codigo html de las estrellas
+
+                for (let i=1; i<=maxEstrellas; i++){
+                    if (i <= producto.valoracion){
+                        estrellasHTML = estrellasHTML + `<i class="fa-solid fa-star"></i>`;
+                    } else
+                        estrellasHTML = estrellasHTML + `<i class="fa-regular fa-star"></i>`;
+                }
+                
+                tarjeta.innerHTML=
+                `
+                    <p class="envio">Envio Gratis</p>
+                     <figure>
+                        <img width= "100px" src="${producto.imagen}" />
+                    </figure>
+                    <p class="nombre">${producto.nombre}</p>
+                    <p class="caracteristicas">
+                        <span class="cpu">${producto.caracteristicas.cpu}</span>
+                        <span class="ram"> RAM: ${producto.caracteristicas.ram}</span>
+                        <span class="disco"> HDD: ${producto.caracteristicas.disco}</span
+                    </p>
+                     <div class="valoraciones">
+                        <span class="star">
+                            ${estrellasHTML}
+                        </span>
+                        <span class="nvaloraciones">${producto.valoracion}</span>
+                        <span class="comentarios">(${producto.opiniones} opiniones)</span>
+                    </div>
+                `;
+                contSeccion.appendChild(tarjeta);
+
+                 //******* añadimos un enlace a cada producto a su detalle ********
+                tarjeta.addEventListener('click', () => {
+                    window.location.href = `detalle.html?id=${producto.id}`;
+                });
+
+            })
+        })
+</script>
