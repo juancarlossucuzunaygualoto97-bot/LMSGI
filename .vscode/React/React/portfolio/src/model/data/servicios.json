@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "titulo": "Fusión de Fibra",
+        "categoria":"Redes de Comunicaciones",
+        "descripción":"La Fusión de fibra optica es un proceso que consiste en unir dos fibras opticas",
+        "imagen":"",
+        "tecnologias": ["Fusión de fibra","Redes de comunicaciones" ,"Fujikura 3105"]
+    },
+    {
+        "id": 2,
+        "titulo": "Configuración de Routers Cisco",
+        "categoria":"Redes de Comunicaciones",
+        "descripción":"La configuración de routers Cisco implica la instalación y ajuste de disposivos de red fabricados",
+        "imagen":"",
+        "tecnologias": ["Router","Redes de comunicaciones" ,"Cisco ISR 400 Series"]
+    },
+
+        {
+        "id": 3,
+        "titulo": "Desarrollo de Aplicaciones web Microservicios",
+        "categoria":"Desarollo de Software",
+        "descripción":"El desarrollo de aplicaciones web basadas en microservicios implica la creación de aplicaciones",
+        "imagen":"",
+        "tecnologias": ["Microservicios","NestJSs" ,"Redes Nats"]
+    },
+    {
+        "id": 4,
+        "titulo": "Despliege de Aplicaciones en Kubernetes",
+        "categoria":"Despliege de Aplicaciones",
+        "descripción":"El despliege de aplicaciones en la nube implica la implementación de aplicaciones en entornos",
+        "imagen":"",
+        "tecnologias": ["DevOps","Kubernetes" ,"Jenkins"]
+    }
+    
+]
