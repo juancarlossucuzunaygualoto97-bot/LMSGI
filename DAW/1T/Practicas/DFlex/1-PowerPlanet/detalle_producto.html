@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-selector {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .product-selector h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .product-btn {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .product-btn:hover {
+            background: #0056b3;
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .gallery-image:hover {
+            border-color: #007bff;
+        }
+
+        .info-section h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .price-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 18px;
+        }
+
+        .current-price {
+            font-size: 32px;
+            color: #28a745;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .discount {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #dc3545;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-selector">
+            <h3>Selecciona un producto:</h3>
+            <div class="product-buttons" id="productButtons"></div>
+        </div>
+
+        <div class="product-detail">
+            <div class="image-section">
+                <img id="mainImage" class="main-image" src="" alt="Imagen principal">
+                <div class="gallery" id="gallery"></div>
+            </div>
+
+            <div class="info-section">
+                <h1 id="productName"></h1>
+                <span class="category" id="category"></span>
+                
+                <div class="price-section">
+                    <div class="original-price" id="originalPrice"></div>
+                    <div class="current-price" id="currentPrice"></div>
+                    <span class="discount" id="discount"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Array JSON con 3 productos de ejemplo
+        const productos = [
+            {
+                id: 1,
+                nombre: "Laptop Gaming Pro",
+                categoria: "Electrónica",
+                precio: 1299.99,
+                descuento: 15,
+                imagenPortada: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&h=400&fit=crop",
+                galeria: [
+                    "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&h=150&fit=crop"
+                ]
+            },
+            {
+                id: 2,
+                nombre: "Zapatillas Deportivas Ultra",
+                categoria: "Deportes",
+                precio: 89.99,
+                descuento: 25,
+                imagenPortada: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop",
+                galeria: [
+                    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1539185441755-769473a23570?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=200&h=150&fit=crop"
+                ]
+            },
+            {
+                id: 3,
+                nombre: "Cafetera Espresso Deluxe",
+                categoria: "Hogar",
+                precio: 249.99,
+                descuento: 10,
+                imagenPortada: "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&h=400&fit=crop",
+                galeria: [
+                    "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=150&fit=crop",
+                    "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=200&h=150&fit=crop"
+                ]
+            }
+        ];
+
+        // Función para calcular el precio con descuento
+        function calcularPrecioFinal(precio, descuento) {
+            return precio - (precio * descuento / 100);
+        }
+
+        // Función para cargar un producto en la plantilla
+        function cargarProducto(producto) {
+            // Cargar nombre
+            document.getElementById('productName').textContent = producto.nombre;
+            
+            // Cargar categoría
+            document.getElementById('category').textContent = producto.categoria;
+            
+            // Cargar precio original
+            document.getElementById('originalPrice').textContent = '€' + producto.precio.toFixed(2);
+            
+            // Calcular y cargar precio con descuento
+            const precioFinal = calcularPrecioFinal(producto.precio, producto.descuento);
+            document.getElementById('currentPrice').textContent = '€' + precioFinal.toFixed(2);
+            
+            // Cargar descuento
+            document.getElementById('discount').textContent = '-' + producto.descuento + '%';
+            
+            // Cargar imagen de portada
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = producto.imagenPortada;
+            mainImage.alt = producto.nombre;
+            
+            // Limpiar galería anterior
+            const galleryContainer = document.getElementById('gallery');
+            galleryContainer.innerHTML = '';
+            
+            // Cargar galería de imágenes
+            producto.galeria.forEach((imagenUrl, index) => {
+                const img = document.createElement('img');
+                img.src = imagenUrl;
+                img.alt = producto.nombre + ' - Imagen ' + (index + 1);
+                img.className = 'gallery-image';
+                
+                // Evento para cambiar imagen principal al hacer clic
+                img.addEventListener('click', function() {
+                    mainImage.src = imagenUrl;
+                });
+                
+                galleryContainer.appendChild(img);
+            });
+        }
+
+        // Crear botones para cada producto
+        function crearBotonesProductos() {
+            const buttonsContainer = document.getElementById('productButtons');
+            
+            productos.forEach((producto, index) => {
+                const button = document.createElement('button');
+                button.className = 'product-btn';
+                button.textContent = 'Producto ' + (index + 1) + ': ' + producto.nombre;
+                
+                button.addEventListener('click', function() {
+                    cargarProducto(producto);
+                });
+                
+                buttonsContainer.appendChild(button);
+            });
+        }
+
+        // Inicializar la página
+        crearBotonesProductos();
+        cargarProducto(productos[0]); // Cargar el primer producto por defecto
+    </script>
+</body>
+</html>

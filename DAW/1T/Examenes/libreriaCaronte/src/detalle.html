@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Librería Caronte Sistemas</title>
+  <link rel="stylesheet" href="../css/detalle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="user">
+      <a class="cliente" href="#">
+        <i class="fa-brands fa-servicestack"></i>
+        <span>Atencion al cliente</span>
+      </a>
+      <a class="cuenta" href="#">
+        <i class="fa-solid fa-user"></i>
+        <span>Mi Cuenta</span>
+      </a> 
+      <a class="cesta" href="#">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>Mi Cesta</span>
+      </a> 
+    </nav>
+    <figure id="logo">
+        <img src="../img/logo.jpeg" alt="logo">
+    </figure>
+    <h1>Librería Caronte Sistemas</h1>
+    <nav class="menu">
+      <a href="#">
+        <i class="fa-solid fa-database"></i>
+        <span>Bases de Datos</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-code"></i>
+        <span>Programación</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-lock"></i>
+        <span>Ciberseguridad</span>
+      </a>
+      <a href="#">
+        <i class="fa-solid fa-cloud"></i>
+        <span>DevOps</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+     <figure>
+          <img id="libro_img" class="portada" src="https://m.media-amazon.com/images/I/61yffUdBDxL._AC_UF1000,1000_QL80_.jpg" alt="portada libro">
+    </figure>
+    <article class="libro-card">
+        <h3 id="libro_titulo" class="titulo">INTELIGENCIA ARTIFICIAL JUGAR O ROMPER LA BARAJA</h3>
+        <h4 id="libro_autor" class="autor">GARCIA PADILLA MARGARITA</h4>
+        <div class="campo">
+            <p>ISBN:</p>
+            <h4 id="libro_isbn" class="isbn">CiberSeguridad</p>
+        </div>
+        <div class="campo">
+            <p>Categoria:</p>
+            <h4 id="libro_categoria" class="categoria">CiberSeguridad</p>
+        </div>
+        <div class="campo">
+            <p>Nivel:</p>
+            <h4 id="libro_nivel" class="nivel">CiberSeguridad</p>
+        </div>
+        <div class="campo">
+            <p>Stock:</p>
+            <h4 id="libro_stock" class="stock">CiberSeguridad</p>
+        </div>
+        <div>
+            <div>Descripcion:</div>
+            <h5 id="libro_descripcion" class="descripcion">CiberSeguridad</p>
+        </div>
+        
+    </article>
+    <div class="precio">
+        <p id="libro_precio" class="pvp">20,00 €</p>
+        <p class="iva">IVA incluido</p>
+        <nav>
+            <a href="#" class="cesta">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Añadir a mi Cesta</span>
+            </a>
+            <a href="#" class="favoritos">
+                <i class="fa-solid fa-heart"></i>
+                <span>Añadir a mis Favoritos</span>
+            </a>
+        </nav>
+    </div>
+  </main>
+</body>
+</html>
+<script>
+    const urlParmans = new URLSearchParams(window.location.search);
+    const isbn_url = urlParmans.get('isbn')
+    console.log(isbn_url)
+    
+    fetch('../data/libros.json')
+        .then(response => response.json())
+        .then (libros => {
+             libro = libros.find(libro => libro.isbn == isbn_url);
+             console.log(libro.isbn)
+             document.getElementById('libro_img').setAttribute("src", libro.imagen);
+             document.getElementById('libro_titulo').textContent = libro.nombre;
+             document.getElementById('libro_autor').textContent = libro.autor;
+             document.getElementById('libro_categoria').textContent = libro.categoria;
+             document.getElementById('libro_isbn').textContent = libro.isbn;
+             document.getElementById('libro_nivel').textContent = libro.nivel;
+             document.getElementById('libro_stock').textContent = libro.stock;
+             document.getElementById('libro_descripcion').textContent = libro.descripcion;
+             document.getElementById('libro_precio').textContent = `${libro.precio} €`;
+
+             
+    }); 
+   
+    
+    
+    
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design - Mobile First</title>
+    
+    <!-- Mobile First: Cargamos primero los estilos móviles -->
+    <link rel="stylesheet" href="css/movil.css">
+    
+    <!-- Tablet: Se aplican a partir de 768px -->
+    <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px)">
+    
+    <!-- Desktop: Se aplican a partir de 1024px -->
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1024px)">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Mi Sitio Web</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#acerca">Acerca de</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="registro">
+            <button>Registrarse</button>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <!-- MENÚ LATERAL -->
+        <aside class="menu-lateral">
+            <h3>Menú Lateral</h3>
+            <ul>
+                <li>📱 Categoría 1</li>
+                <li>💻 Categoría 2</li>
+                <li>🎨 Categoría 3</li>
+                <li>📊 Categoría 4</li>
+                <li>⚙️ Configuración</li>
+            </ul>
+        </aside>
+
+        <!-- SECCIÓN CENTRAL -->
+        <section class="section-central">
+            <h2>Contenido Principal</h2>
+            <p><strong>Responsive Web Design con Mobile First</strong></p>
+            <p>Este diseño adapta su estructura según el tamaño de la pantalla:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>📱 Móvil (< 768px):</strong> Layout vertical, todo en columna</li>
+                <li><strong>📱 Tablet (768px - 1023px):</strong> Grid 2 columnas, menú lateral + contenido/aside apilados</li>
+                <li><strong>💻 Desktop (≥ 1024px):</strong> Grid 3 columnas, todas visibles simultáneamente</li>
+            </ul>
+            <p>Los estilos se cargan en cascada: primero móvil (base), luego tablet, finalmente desktop.</p>
+            <p>Esta estructura utiliza tres archivos CSS separados en la carpeta <code>css/</code>:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><code>movil.css</code> - Estilos base para todos los dispositivos</li>
+                <li><code>tablet.css</code> - Estilos adicionales para tablets (≥768px)</li>
+                <li><code>desktop.css</code> - Estilos adicionales para escritorio (≥1024px)</li>
+            </ul>
+        </section>
+
+        <!-- ASIDE -->
+        <aside class="aside-contenido">
+            <h3>Información Adicional</h3>
+            <p>Este es el área de contenido complementario que puede contener:</p>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                <li>Publicidad</li>
+                <li>Enlaces relacionados</li>
+                <li>Widgets</li>
+                <li>Noticias destacadas</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <!-- NAVEGACIÓN SOCIAL -->
+        <div class="nav-sociales">
+            <h4>Síguenos</h4>
+            <div class="redes-sociales">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- ZONA DE CONTACTO -->
+        <div class="zona-contacto">
+            <h4>Contacto</h4>
+            <p>📧 info@misitio.com</p>
+            <p>📱 +34 123 456 789</p>
+            <p>📍 Madrid, España</p>
+        </div>
+    </footer>
+</body>
+</html>

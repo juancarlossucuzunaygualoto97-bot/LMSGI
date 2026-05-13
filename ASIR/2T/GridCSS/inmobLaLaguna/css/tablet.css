@@ -1,0 +1,11 @@
+header {
+    grid-template-areas:
+      "llamadaLogin llamadaLogin navSociales navSociales "
+      "logo direccion direccion menuPrincipal";
+    grid-template-columns: 3fr 1fr 3fr 3fr;
+    grid-template-rows: 50px 150px;
+}
+
+header .direccion .fa-bars {
+    display: none;
+}

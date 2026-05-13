@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:  rgba(0,0,0,0.8);
+    color: white;
+    display: flex;
+    flex-direction: column; /* row */
+    flex-wrap: nowrap; /* todos los hijos en una columna/fila */
+}
+
+header h1{
+    text-align: center;
+    margin: 10px 0;
+    color: red;
+}
+
+header figure{
+    display: none;
+}
+header nav{
+    display: flex;
+    flex-direction: column; /* row */
+    margin: 10px 0;
+    border: 0px solid red;
+}
+header nav a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 0px solid white;
+    text-align: center;
+}
+
+header nav a:hover{
+    background-color: white;
+    color: black;
+}
+header button{
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main nav {
+    background-color: antiquewhite;
+    flex-basis: 20%;
+}
+main section {
+    background-color: cadetblue;
+    flex-basis: 50%;
+}
+main aside {
+    background-color: cornflowerblue;
+    flex-basis: 30%;
+}
+main footer {
+    background-color: grey;
+}

@@ -1,0 +1,48 @@
+header{
+    flex-direction: row;
+    justify-content: center !important;
+    align-items: center;
+}
+header h1{
+    flex-basis: 30%;
+    order: 3;
+
+}
+header nav{
+    flex-direction: row;
+    flex-basis: 40%;
+    /* gap: 20px; */
+    justify-content: space-between;
+    align-items: center;
+    order: 2;
+}
+
+header nav a{
+    border-radius: 10px;
+    padding: 10px;
+}
+
+header button{
+    flex-basis: 15%;
+    order: 1;
+}
+
+main {
+    flex-wrap: wrap;
+}
+
+main nav {
+    flex-basis: 100%;
+    width: 20%;
+    order:1
+}
+main section {
+    flex-basis: 70%;
+    width: 80%;
+    order:3;
+}
+main aside {
+    flex-basis: 30%;
+    width: 80%;
+    order:2;
+}

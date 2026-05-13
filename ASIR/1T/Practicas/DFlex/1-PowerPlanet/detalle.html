@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPlanet</title>
+    <link rel="stylesheet" href="css/detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <figure>
+            <img src="img/logo.png" alt="Logo PowerPlanet">    
+        </figure>
+        <form>
+            <input type="search" placeholder="Buscar...">
+        </form>
+        <nav>
+            <a href="#">Ofertas Limitadas</a>
+            <a href="#">Contactanos</a>
+            <a href="#">ES</a>
+        </nav>
+        <div id="carrito"> 
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header> 
+    <main>
+        <nav id="breadcrumb">
+            <a href=#>
+                <i class="fa-solid fa-house"></i>
+            </a> &gt;  
+            <a href="http://127.0.0.1:5501/ASIR/DFlex/1-PowerPlanet/index.html">Smartphones</a> &gt;
+            <a href="#">Moviles</a> &gt;
+            <a href="#">One Plus 13</a>
+        </nav>
+       
+        <figure id="thumbnails">
+            <img src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_512gb_negro_01_l.jpg" alt="Vista 1">
+            <img src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_256gb_negro_02_ad_l.jpg" alt="Vista 2">
+            <img src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_256gb_negro_03_ad_l.jpg" alt="Vista 3">
+            <img src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_256gb_negro_04_ad_l.jpg" alt="Vista 4">
+            <img src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_256gb_negro_05_ad_l.jpg" alt="Vista 4">
+            
+        </figure>
+        <figure id="portada">
+            <div class="badges">
+                <div class="badge-friday">FRESH FRIDAY</div>
+                <div class="badge-envio">Envío gratis</div>
+            </div>
+            <img id="product_foto" src="https://www.powerplanetonline.com/cdnassets/cubot_kingkong_x_12gb_512gb_negro_01_l.jpg" alt="Cubot KingKong X">
+        </figure>
+        <article id="caracteristicas">
+            <h1 id="product_nombre" class="title">Cubot KingKong X 16GB/256GB Negro</h1>
+            <div class="valoraciones">
+                <span class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span id="product_nvaloraciones" class="nvaloraciones">5</span>
+                <span id="product_comentarios" class="comentarios">(3 opiniones)</span>
+            </div>
+            <div class="price-section">
+                <span id="product_descuento" class="discount-badge">-35%</span>
+                <span id="product_pvo" class="current-price">284,99€</span>
+            </div>
+            <div>
+                <p id="product_pvp" class="recommended-price">Precio recomendado: 439,00€</p>
+                <p style="color: #999; font-size: 13px;">Los precios incluyen IVA</p>
+            </div>
+
+            <a href="#" class="brand">CUBOT</a>
+            <p style="color: #666; font-size: 13px;">REF: CUBOT-KINGKONGX-16GB-256GB</p>
+
+            <div class="availability">
+                <div class="icon-delivery">🚚</div>
+                <div class="availability-info">
+                    <strong>Disponibilidad: ¡En stock! Recíbelo mañana Miércoles, 26 Nov.</strong>
+                    <span>Envío : ¡Gratis!</span>
+                    <span>Devolución Gratis: Hasta 8 de Febrero</span>
+                    <span>Garantía: 3 años</span>
+                </div>
+            </div>
+        </article>
+    </main>
+</body>
+<script>
+    // 1-. Obtener los parametros de la URL
+    const urlParmans = new URLSearchParams(window.location.search);
+    // 2-. Obtener el parametro 'id'
+    const idProd = parseInt(urlParmans.get('codigo'))
+    //comprobar que el id llega al detalle.html a traves de la URL
+    console.log ("--->", idProd)
+    //leemos el array json de productos y devolvemos el producto cuya id = = idProd
+    const producto = await fetch('./data/productos.json')
+        .then(response => response.json())
+        .then (productos => {
+             producto = productos.find(p => p.id === idProd);
+             return producto;
+        }); //cierro el fetch
+   
+    console.log ("-->", producto)
+    document.getElementById('product_nombre').textContent = producto.nombre;
+    document.getElementById('product_nvaloraciones').textContent=producto.valoracion;
+    document.getElementById('product_comentarios').textContent=`( ${producto.opiniones}  opiniones )`;
+    document.getElementById('product_descuento').textContent=`- ${producto.descuento}  % `;
+
+    document.getElementById('product_pvo').textContent=`${producto.precio} € `;
+    document.getElementById('product_pvp').textContent=`Precio Recomendado: ${producto.precioOriginal} €  `;
+
+    document.getElementById('product_foto').setAttribute("src", producto.imagen)
+    
+</script>
