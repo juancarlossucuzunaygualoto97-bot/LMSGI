@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: gray;
+    height: 20vh;
+   
+    display: grid;
+    grid-template-areas:
+      " . navSociales . . "
+      "llamadaLogin llamadaLogin llamadaLogin llamadaLogin"
+      "logo      logo      logo logo"
+      "direccion  direccion  direccion direccion"
+      "menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+      ;
+    grid-template-columns: 2fr 6fr 2fr 1fr;
+    grid-template-rows: 30px 30px 100px 80px 150px;
+    gap: 5px;
+    padding: 5px;
+}
+header .sociales {
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    grid-area: navSociales;
+}
+
+header .llamada-login {
+    background-color: rgb(0, 92, 128);
+    color: white;
+    padding: 5px;
+    grid-area: llamadaLogin;
+    width: 70%;
+    margin: 0 auto;
+}
+
+header .logo {
+    background-color: antiquewhite;
+    color: black;
+    padding: 5px;
+    grid-area: logo;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+
+header .logo figure {
+    background-color: orange;
+    padding: 5px;
+}
+header .logo h1{
+    padding: 5px;
+}
+header .direccion {
+    background-color: lightgreen;
+    color: black;
+    padding: 5px;
+    grid-area: direccion;
+    display: flex;
+    justify-content: space-around;
+}
+
+header .direccion .dir{
+    display: inline-block;
+    flex-basis: 30%;
+}
+header .direccion .email{
+    display: inline-block;
+    flex-basis: 30%;
+}
+header .direccion i{
+    display: flex;
+    border: 1px solid red;
+    flex-basis: 10%;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+header .menu-principal {
+    background-color: aqua;
+    color: black;
+    padding: 5px;
+    grid-area: menuPrincipal;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+}
+header .menu-principal a {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}

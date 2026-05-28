@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: grey;
+    padding: 10px;
+    display: grid;
+    grid-template-areas: 
+        " . navSociales . "
+        " loginTfno loginTfno . "
+        " Logo Titulos . "
+        " Direcciones Direcciones Fab "
+        " MenuPpal MenuPpal MenuPpal ";
+    ;
+    grid-template-columns: 2fr 7fr 1fr;
+    grid-template-rows: 30px 30px 80px 50px 100px;
+}
+
+header nav.sociales {
+    background-color: aquamarine;
+    padding: 5px;
+    grid-area: navSociales;
+   /* width: 60%;
+    margin: 0 auto; /* centrarse repecto al padre */
+    text-align: center;
+}
+header nav.login {
+    background-color: rosybrown;
+    padding: 5px;
+    grid-area: loginTfno;
+}
+header figure {
+    background-color: orange;
+    padding: 5px;
+    grid-area: Logo;
+}
+header div.titulos {
+    background-color: blue;
+    padding: 5px;
+    grid-area: Titulos;
+}
+header div.direcciones {
+    background-color: blueviolet;
+    padding: 5px;
+    grid-area: Direcciones;
+}
+header i.fa-bars{
+    font-size: 30px;
+    grid-area: Fab;
+}
+
+header nav.menu-ppal {
+    background-color: aqua;
+    padding: 5px;
+    grid-area: MenuPpal;
+}

@@ -1,0 +1,18 @@
+header {
+    display: grid;
+    grid-template-areas:
+      "llamadaLogin llamadaLogin navSociales "
+      "logo direccion direccion"
+      "menuPrincipal menuPrincipal menuPrincipal"
+      ;
+    grid-template-columns: 3fr 3fr 3fr;
+    grid-template-rows: 50px 100px 50px;
+    background-color: blue;
+}
+
+header .menu-principal {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}

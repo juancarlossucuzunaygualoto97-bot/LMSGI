@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "titulo": "Fusión de Fibra",
+        "categoria": "Redes de Comunuicaciones",
+        "descripcion": "La fusión de fibra óptica es un proceso que consiste en unir dos fibras ópticas para crear una conexión continua. Este proceso se realiza utilizando una máquina de fusión que alinea y fusiona las fibras mediante calor o electricidad. La fusión de fibra es esencial para garantizar una transmisión de datos eficiente y sin pérdidas en redes de comunicaciones, ya que minimiza la atenuación y la dispersión de la señal, permitiendo así una mayor capacidad y velocidad de transmisión.",
+        "imagen": "https://www.cablematic.com/imagenes/maquina-fusion-fibra-optica.jpg",
+        "tecnologias": ["Fusión de Fibra", "Redes de Comunicaciones", "Fujikura 310S"]
+    },
+    {
+        "id": 2,
+        "titulo": "Configuración de Routers Cisco",
+        "categoria": "Redes de Comunuicaciones",
+        "descripcion": "La configuración de routers Cisco implica la instalación y ajuste de dispositivos de red fabricados por Cisco Systems para gestionar el tráfico de datos en una red. Esto incluye la asignación de direcciones IP, la configuración de protocolos de enrutamiento, la implementación de medidas de seguridad y la optimización del rendimiento de la red. Los routers Cisco son ampliamente utilizados en entornos empresariales y ofrecen una amplia gama de características para garantizar una conectividad eficiente y segura.",
+        "imagen": "https://www.cisco.com/c/dam/m/en_us/solutions/enterprise-networks/enterprise-networking-solutions/routers/ISR-4000-Series-routers.jpg",
+        "tecnologias": ["Routers", "Redes de Comunicaciones", "Cisco ISR 4000 Series"]
+    },
+    {
+        "id": 3,
+        "titulo": "Desarrollo de Aplicaciones Web Microservicios",
+        "categoria": "Desarrollo de Software",
+        "descripcion": "El desarrollo de aplicaciones web basadas en microservicios implica la creación de aplicaciones que se componen de múltiples servicios pequeños e independientes, cada uno de los cuales realiza una función específica. Estos microservicios se comunican entre sí a través de API y pueden ser implementados y escalados de forma independiente. Este enfoque permite una mayor flexibilidad, escalabilidad y resiliencia en el desarrollo de aplicaciones, ya que los equipos pueden trabajar en diferentes servicios simultáneamente y realizar cambios sin afectar a toda la aplicación.",
+        "imagen": "https://www.cisco.com/c/dam/m/en_us/solutions/enterprise-networks/enterprise-networking-solutions/routers/ISR-4000-Series-routers.jpg",
+        "tecnologias": ["Microservicios", "NestJS", "Redes Nats"]
+    },
+    {
+        "id": 4,
+        "titulo": "Despliegue de Aplicaciones en la Nube",
+        "categoria": "Despliegue de Aplicaciones",
+        "descripcion": "El despliegue de aplicaciones en la nube implica la implementación de aplicaciones en entornos de nube, lo que permite una mayor escalabilidad, flexibilidad y accesibilidad. Este proceso incluye la configuración de la infraestructura en la nube, la gestión de recursos y la optimización del rendimiento de las aplicaciones. Las soluciones en la nube permiten a las organizaciones reducir costos, mejorar la colaboración y acelerar el desarrollo de aplicaciones.",
+        "imagen": "",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    },
+    {
+        "id": 5,
+        "titulo": "Despliegue de Aplicaciones en Kubernetes",
+        "categoria": "Despliegue de Aplicaciones",
+        "descripcion": "El despliegue de aplicaciones en Kubernetes implica la implementación de aplicaciones en entornos de contenedores orquestados por Kubernetes, lo que permite una mayor escalabilidad, flexibilidad y gestión de recursos. Este proceso incluye la configuración de clústeres de Kubernetes, la gestión de pods y servicios, y la optimización del rendimiento de las aplicaciones en contenedores. Kubernetes es una plataforma ampliamente utilizada para el despliegue de aplicaciones en la nube y en entornos locales.",
+        "imagen": "",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    }
+]

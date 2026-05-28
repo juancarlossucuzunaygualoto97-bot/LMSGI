@@ -1,0 +1,34 @@
+[
+{
+"id":1,
+"titulo":"Fusión de Fibra",
+"Categoria":"Redes de Comunicaciones",
+"Descripcion":"La fusion de fibra optica es un proceso que consiste en unir dos fibras opticas para crear una conexion",
+"imagen":"",
+"tecnologias":["Fusion de fibra", "Redes de Comunicaciones","Fujikura 3105"]
+
+},
+{
+"id":2,
+"titulo":"Configuracion de Routers Cisco",
+"Categoria":"Redes de Comunicaciones",
+"Descripcion":"La configuracion de routers Cisco implica la instalacion y ajuste de dispositivos de red fabricados",
+"imagen":"",
+"tecnologias":["Routers", "Redes de Comunicaciones","Cisco ISR 4000 Series"]
+
+
+},
+
+{
+
+"id":2,
+"titulo":"Configuracion de Routers Cisco",
+"Categoria":"Redes de Comunicaciones",
+"Descripcion":"La configuracion de routers Cisco implica la instalacion y ajuste de dispositivos de red fabricados",
+"imagen":"",
+"tecnologias":["Routers", "Redes de Comunicaciones","Cisco ISR 4000 Series"]
+
+
+}
+
+]

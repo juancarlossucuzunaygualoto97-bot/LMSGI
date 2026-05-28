@@ -1,0 +1,95 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: blue;
+    display: grid;
+    grid-template-areas:
+      "oferta oferta oferta"
+      "logo   titulo titulo"
+      "navppal  navppal registro";
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 30px 100px 50px;
+    gap: 5px;
+    padding: 5px;
+}
+
+header .oferta {
+    background-color: black;
+    color: white;
+    grid-area: oferta;
+}
+header figure {
+    background-color: orange;
+    grid-area: logo;
+}
+header h1 {
+    background-color: yellow;
+    grid-area: titulo;
+}
+header #registro {
+    background-color: red;
+    grid-area: registro
+}
+header nav {
+    background-color: violet;
+    grid-area: navppal
+}
+
+main {
+    background-color: red;
+    display: grid;
+    grid-template-areas: 
+        "headmain"
+        "navcat"
+        "productos"
+        "info";
+    grid-template-columns: 100%;
+    grid-template-rows: 100px 50px 500px 200px;
+    gap: 5px;
+    padding: 5px;;
+}
+main header {
+    grid-area: headmain;
+    background-color: burlywood;
+}
+main #categorias {
+    grid-area: navcat;
+    background-color: green;
+}
+main section {
+    grid-area: productos;
+    background-color: yellow;
+}
+main aside {
+    grid-area: info;
+    background-color: grey;
+}
+main #resumen {
+    grid-area: resumen;
+    background-color: aqua;
+}
+
+footer {
+    background-color: black;
+    display: grid;
+    grid-template-areas: 
+        "mapa"
+        "sociales";
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 200px 50px;
+    gap: 5px;
+    padding: 5px;;
+}
+footer #sociales {
+    grid-area: sociales;
+    background-color: navajowhite;
+}
+footer #mapa {
+    grid-area: mapa;
+    background-color: yellow;
+}
