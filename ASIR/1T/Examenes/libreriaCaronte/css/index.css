@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f4f4;
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
+/* ===== HEADER ===== */
+header{
+  background:#222;
+  color:white;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content:space-between;
+  height: 20vh;
+  margin-bottom: 10px;
+}
+
+header nav.user {
+  background-color: green;
+  flex-basis: 100%;
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+}
+header nav.user a.cliente {
+  flex-basis: 70%;
+}
+header nav.user a.cuenta {
+  flex-basis: 15%;
+}
+header nav.user a.cesta {
+  flex-basis: 15%;
+}
+header figure#logo{
+  height: 17vh;
+  flex-basis: 10%;
+  border: 0px solid red;
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  padding-left: 20px;
+}
+
+header figure#logo img{
+  height: 100%;
+}
+
+header header h1 {
+    flex-basis: 35%;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+header nav.menu{
+  flex-basis: 50%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap:25px;
+  list-style:none;
+  height: 8vh;
+  border: 0px solid red;
+}
+
+header nav.menu a{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 20%;
+  padding: 10px;
+  color:white;
+  text-decoration:none;
+  border: .5px solid whitesmoke;
+  border-radius: 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all ease-in-out .3s;
+}
+
+header nav.menu a:hover{
+  box-shadow: 2px 2px rgb(162, 231, 162);
+  color: rgb(162, 231, 162);
+  background-color: rgba(222, 208, 208, 0.2);
+  transform: scale(1.1);
+}
+header nav.menu a:hover i{
+    
+}
+header div.registro button{
+  background:#0077ff;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+
+/* ===== MAIN ===== */
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+main section {
+  flex-basis: 80%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+main section article{
+  position: relative;
+  flex-basis: 23%;
+  border: 0px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: all ease-in .4s;
+}
+main section article figure{
+  height: 25vh;
+  border: 0px solid black;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+main section article .categoria{
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  background-color: purple;
+  color: wheat;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 3px;
+}
+main section article figure .portada{
+  height: 100%;
+  
+}
+main section article .titulo{
+  flex-basis: 80%;
+  border: 0px solid red;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 2px;
+}
+main section article .autor{
+  flex-basis: 80%;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+main section article .precio{
+  flex-basis: 40%;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
+main section article .btn-comprar{
+  flex-basis: 40%;
+  background-color: green;
+  padding: 4px;
+  border-radius: 5px;
+  color: white;
+}
+
+main section article:hover{
+  border-radius: 5px;
+  border: .5 solid black;
+  background-color: rgba(162, 231, 162, .4);
+  padding: 5px;
+  box-shadow: 2px 2px rgba(0,0,0,.5);
+}
+
+main section article:hover .categoria{
+  background-color: red;
+}
+/* main section article:hover img{
+  border: 10px solid white;
+} */
+
+
+/* ===== FOOTER ===== */
+footer{
+  background:#333;
+  color:white;
+  padding:25px;
+  text-align:center;
+}
+
+.social{
+  margin-top:10px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+.social a{
+  color:white;
+  text-decoration:none;
+}

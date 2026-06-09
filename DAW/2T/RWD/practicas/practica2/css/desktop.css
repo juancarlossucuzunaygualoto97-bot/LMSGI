@@ -1,0 +1,38 @@
+header{
+    /* 
+        los hijos en varias filas 
+        basandose en flex-basicsis de cada hijo y el order
+    */
+    flex-wrap: wrap;
+}
+
+header h1 {
+    flex-basis: 80%;
+    order: 1;
+}
+
+header figure {
+    display: none;
+}
+header nav{
+    flex-basis: 50%;
+    order: 3;
+}
+
+header button{
+    flex-basis: 15%;
+    order: 2;
+}
+
+main nav {
+    flex-basis: 100%;
+    width: 20%;
+}
+main section {
+    flex-basis: 100%;
+    width: 50%;
+}
+main aside {
+    flex-basis: 100%;
+    width: 30%;
+}

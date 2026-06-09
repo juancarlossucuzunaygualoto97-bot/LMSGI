@@ -1,0 +1,96 @@
+/* ============================================
+   DESKTOP.CSS - Estilos para escritorio
+   Se aplican a partir de 1024px
+   ============================================ */
+
+/* ========== BODY - Contenedor máximo ========== */
+body {
+    max-width: 1400px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== HEADER - Más espaciado ========== */
+header {
+    padding: 1.5rem 3rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+}
+
+nav ul {
+    gap: 1.5rem;
+}
+
+/* ========== MAIN - Grid de 3 columnas ========== */
+main {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+/* Menú lateral a la izquierda */
+.menu-lateral {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Sección central en el medio */
+.section-central {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 500px;
+}
+
+/* Aside a la derecha */
+.aside-contenido {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+/* ========== FOOTER - Más espaciado ========== */
+footer {
+    padding: 3rem;
+    gap: 3rem;
+}
+
+/* ========== EFECTOS HOVER para Desktop ========== */
+nav ul li a {
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.registro button {
+    transition: all 0.3s ease;
+}
+
+.registro button:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+.redes-sociales a {
+    transition: all 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    background: #1a252f;
+    transform: translateY(-2px);
+}
+
+.menu-lateral ul li {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.menu-lateral ul li:hover {
+    background: rgba(52, 152, 219, 0.1);
+    padding-left: 0.5rem;
+}

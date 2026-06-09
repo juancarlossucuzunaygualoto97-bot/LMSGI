@@ -1,0 +1,81 @@
+*{ /*Poner a 0 los margin y paddin de todos los elementos */
+margin: 0;
+padding: 0;
+box-sizing: border-box; /*modelo de cajas*/
+
+}body { 
+    min-height: 100vh; /* vh Altura minima del body al 100%d de la ventana */
+    border: 2px solid black;
+   /* background-color: aqua; */
+    height: 100vh; /*Altura del body al 100% de la ventana */
+   /* min-height: 100vh; altura del body al 100% de la ventana */
+   /* max-height: 100vh; altura maxima del body al 100% de la ventana */
+   /*width:  70vw; */
+}
+
+h1{  /* Selector de clases : Coinciden con la etiqueta HTML */
+    color: rgb(173, 50, 50);
+    background-color: blue;
+}
+
+
+
+header h1{
+    color: rgb(149, 51, 51);
+    text-align: center;
+}
+header nav{
+    border: 2px solid black;
+    text-align: center;
+    padding: 0%;
+}
+header nav a {
+    border: 2px solid yellow
+    color(green);
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 5px;
+
+
+}
+
+header nav a:hover {
+background-color: white;    
+}
+
+
+body {
+    height: 10vh;
+    background-color: blue;
+}
+
+main{
+    height: 80vh;
+    background-color: aliceblue;
+}
+
+footer{
+    height: 10vh;
+    background-color: bisque; 
+}
+header {
+    height: 12vh; 
+    background-color: blue;
+    display: flex; /* modelo de cajas flexibles */
+    flex-direction: row; /* Direccion de los items (horizontales) */
+    flex-wrap: nowrap; /* no permitir salto de linea entre lineas */
+    justify-content: center; /*aliniacion horizontal de los items */
+
+}
+
+header figure {
+    border: 20px solid red;
+    height: 100%;
+}
+
+header figure img{
+    height: 90px;
+}

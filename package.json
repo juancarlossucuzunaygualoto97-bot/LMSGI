@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "portfolio-page",
   "private": true,
   "version": "0.0.0",
@@ -41,5 +42,10 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.0"
+=======
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+>>>>>>> 696562fece25528a17fadd3e30bfb07573baf49b
   }
 }
