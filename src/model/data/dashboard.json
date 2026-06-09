@@ -1,0 +1,53 @@
+{
+  "empresa": "Acme Inc.",
+  "metricas": [
+    { "id": 1, "titulo": "Trending up this month", "descripcion": "Visitors for the last 6 months", "valor": "4.5%", "tendencia": "up" },
+    { "id": 2, "titulo": "Down 20% this period", "descripcion": "Acquisition needs attention", "valor": "-20%", "tendencia": "down" },
+    { "id": 3, "titulo": "Strong user retention", "descripcion": "Engagement exceed targets", "valor": "+12%", "tendencia": "up" },
+    { "id": 4, "titulo": "Steady performance increase", "descripcion": "Meets growth projections", "valor": "+8%", "tendencia": "up" }
+  ],
+  "visitantes": [
+    { "fecha": "Apr 5",  "semana": 120, "mes": 200, "trimestre": 340 },
+    { "fecha": "Apr 10", "semana": 180, "mes": 280, "trimestre": 420 },
+    { "fecha": "Apr 15", "semana": 140, "mes": 310, "trimestre": 390 },
+    { "fecha": "Apr 20", "semana": 220, "mes": 260, "trimestre": 460 },
+    { "fecha": "Apr 25", "semana": 160, "mes": 190, "trimestre": 380 },
+    { "fecha": "Apr 30", "semana": 300, "mes": 350, "trimestre": 520 },
+    { "fecha": "May 5",  "semana": 480, "mes": 520, "trimestre": 700 },
+    { "fecha": "May 10", "semana": 260, "mes": 340, "trimestre": 480 },
+    { "fecha": "May 15", "semana": 320, "mes": 400, "trimestre": 560 },
+    { "fecha": "May 20", "semana": 380, "mes": 460, "trimestre": 620 },
+    { "fecha": "May 25", "semana": 290, "mes": 370, "trimestre": 510 },
+    { "fecha": "May 30", "semana": 420, "mes": 500, "trimestre": 680 },
+    { "fecha": "Jun 4",  "semana": 350, "mes": 430, "trimestre": 590 },
+    { "fecha": "Jun 9",  "semana": 280, "mes": 360, "trimestre": 500 },
+    { "fecha": "Jun 14", "semana": 310, "mes": 390, "trimestre": 540 },
+    { "fecha": "Jun 19", "semana": 260, "mes": 340, "trimestre": 480 },
+    { "fecha": "Jun 24", "semana": 390, "mes": 470, "trimestre": 640 },
+    { "fecha": "Jun 30", "semana": 330, "mes": 410, "trimestre": 570 }
+  ],
+  "proyectos": [
+    { "id": 1, "header": "Agentes de Inteligencia Artificial", "tipo": "Cover page",        "estado": "in-process", "target": 18, "limit": 5,  "reviewer": "Eddie Lake" },
+    { "id": 2, "header": "Table of contents",                   "tipo": "Table of contents", "estado": "done",       "target": 29, "limit": 24, "reviewer": "Eddie Lake" },
+    { "id": 3, "header": "Executive summary",                   "tipo": "Narrative",         "estado": "done",       "target": 10, "limit": 13, "reviewer": "Eddie Lake" },
+    { "id": 4, "header": "Technical approach",                  "tipo": "Narrative",         "estado": "done",       "target": 27, "limit": 23, "reviewer": "Jamik Tashpulatov" },
+    { "id": 5, "header": "Design",                              "tipo": "Narrative",         "estado": "in-process", "target": 2,  "limit": 16, "reviewer": "Jamik Tashpulatov" },
+    { "id": 6, "header": "Capabilities",                        "tipo": "Narrative",         "estado": "in-process", "target": 20, "limit": 8,  "reviewer": "Jamik Tashpulatov" },
+    { "id": 7, "header": "Integration with existing systems",   "tipo": "Narrative",         "estado": "in-process", "target": 19, "limit": 21, "reviewer": "Jamik Tashpulatov" },
+    { "id": 8, "header": "Innovation and Advantages",           "tipo": "Narrative",         "estado": "done",       "target": 25, "limit": 26, "reviewer": "Assign reviewer" },
+    { "id": 9, "header": "Overview of EMR's Innovative Solutions","tipo": "Technical content","estado": "done",      "target": 7,  "limit": 23, "reviewer": "Assign reviewer" },
+    { "id": 10,"header": "Advanced Algorithms and Machine Learning","tipo": "Narrative",      "estado": "done",       "target": 30, "limit": 28, "reviewer": "Assign reviewer" }
+  ],
+  "navItems": [
+    { "label": "Cursos",    "icono": "BookOpen",  "ruta": "/admin/cursos" },
+    { "label": "Productos", "icono": "Package",   "ruta": "/admin/products" },
+    { "label": "Servicios", "icono": "Wrench",    "ruta": "/admin/servicios" },
+    { "label": "Trabajos",  "icono": "Briefcase", "ruta": "/admin/trabajos" },
+    { "label": "Clientes",  "icono": "Users",     "ruta": "/admin/clientes" }
+  ],
+  "docItems": [
+    { "label": "Data Library", "icono": "Database" },
+    { "label": "Reports",      "icono": "FileText" },
+    { "label": "Word Assistant","icono": "FileEdit" }
+  ]
+}

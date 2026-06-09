@@ -1,0 +1,8 @@
+[
+  { "id": 1, "seccion": "hero", "titulo": "Juan Carlos", "subtitulo": "Administración de Sistemas Informáticos en Red", "descripcion": "Estudiante de primer año de ASIR. Apasionado por la tecnología, el desarrollo web y el sector IT." },
+  { "id": 2, "seccion": "servicios", "titulo": "Servicios", "subtitulo": "Lo que puedo ofrecerte" },
+  { "id": 3, "seccion": "trabajos", "titulo": "Proyectos", "subtitulo": "Lo que he construido" },
+  { "id": 4, "seccion": "contacto", "titulo": "Contacto", "subtitulo": "¿Hablamos?" },
+  { "id": 5, "seccion": "formacion", "titulo": "Formación", "subtitulo": "Mi trayectoria" },
+  { "id": 6, "seccion": "qsomos", "titulo": "Quiénes Somos", "subtitulo": "Sobre mí" }
+]

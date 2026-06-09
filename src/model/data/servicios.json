@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "titulo": "Desarrollo Web",
+    "descripcion": "Sitios web modernos y responsivos con HTML, CSS, JavaScript y React.",
+    "imagen": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80"
+  },
+  {
+    "id": 2,
+    "titulo": "Administración de Sistemas",
+    "descripcion": "Gestión de servidores Linux/Windows, redes y virtualización.",
+    "imagen": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80"
+  },
+  {
+    "id": 3,
+    "titulo": "Redes & Infraestructura",
+    "descripcion": "Configuración de redes, switches, routers y seguridad.",
+    "imagen": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80"
+  },
+  {
+    "id": 4,
+    "titulo": "Seguridad Informática",
+    "descripcion": "Análisis de vulnerabilidades, firewalls y protección de sistemas.",
+    "imagen": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=600&q=80"
+  },
+  {
+    "id": 5,
+    "titulo": "Virtualización",
+    "descripcion": "Configuración de máquinas virtuales con VMware y VirtualBox.",
+    "imagen": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&q=80"
+  },
+  {
+    "id": 6,
+    "titulo": "Soporte Técnico",
+    "descripcion": "Resolución de incidencias hardware y software en entornos profesionales.",
+    "imagen": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&q=80"
+  }
+]

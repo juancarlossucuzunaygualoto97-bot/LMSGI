@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "titulo": "Portfolio React",
+    "descripcion": "Portfolio personal desarrollado con React y Vite. Diseño moderno con animaciones CSS, navegación con React Router y arquitectura basada en componentes reutilizables.",
+    "imagen": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&q=80",
+    "tags": ["React", "Vite", "TypeScript", "CSS"],
+    "link": "/",
+    "estado": "Completado",
+    "fecha": "2025"
+  },
+  {
+    "id": 2,
+    "titulo": "App de Tareas",
+    "descripcion": "Aplicación para gestionar tareas diarias con funcionalidades de crear, editar, completar y eliminar. Interfaz limpia con almacenamiento en localStorage.",
+    "imagen": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80",
+    "tags": ["JavaScript", "HTML", "CSS", "localStorage"],
+    "link": "#",
+    "estado": "Completado",
+    "fecha": "2025"
+  },
+  {
+    "id": 3,
+    "titulo": "Web HTML & CSS",
+    "descripcion": "Página web estática con diseño responsive adaptado a móvil, tablet y escritorio. Maquetación con Flexbox y Grid, siguiendo estándares modernos de accesibilidad.",
+    "imagen": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80",
+    "tags": ["HTML", "CSS", "Flexbox", "Responsive"],
+    "link": "#",
+    "estado": "Completado",
+    "fecha": "2024"
+  },
+  {
+    "id": 4,
+    "titulo": "Dashboard Admin",
+    "descripcion": "Panel de administración con sidebar, gráficos de visitantes, tabla de proyectos con estados y formularios para gestión de datos. Datos persistentes con localStorage.",
+    "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    "tags": ["React", "TypeScript", "Recharts", "Tailwind"],
+    "link": "/admin",
+    "estado": "En desarrollo",
+    "fecha": "2025"
+  },
+  {
+    "id": 5,
+    "titulo": "Sistema de Inventario Web",
+    "descripcion": "Aplicación web fullstack para gestión de inventario empresarial. Desarrollada con React y Supabase como backend. Permite registrar productos, controlar stock y gestionar usuarios con autenticación. Desplegada en red local bajo el dominio inventarioweb.peregrin.local.",
+    "imagen": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
+    "tags": ["React", "Supabase", "PostgreSQL", "Auth"],
+    "link": "http://inventarioweb.peregrin.local:5173",
+    "estado": "Completado",
+    "fecha": "2025"
+  },
+  {
+    "id": 6,
+    "titulo": "Aplicación Web con Supabase",
+    "descripcion": "Segunda aplicación fullstack desarrollada con React y Supabase. Incluye autenticación de usuarios, base de datos en tiempo real con PostgreSQL, almacenamiento de archivos y API REST autogenerada. Proyecto académico desplegado en entorno local.",
+    "imagen": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=600&q=80",
+    "tags": ["React", "Supabase", "Vite", "PostgreSQL"],
+    "link": "#",
+    "estado": "Completado",
+    "fecha": "2025"
+  }
+]
