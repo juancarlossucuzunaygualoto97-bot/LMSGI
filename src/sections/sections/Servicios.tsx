@@ -1,5 +1,5 @@
 
-import { ServiciosCard } from "@/components/main/servicios/ServiciosCard";
+import ServiciosCard from "../../components/main/servicios/ServiciosCard";
 import dataservicios from "@/model/data/servicios.json";
 
 const Servicios = () => {

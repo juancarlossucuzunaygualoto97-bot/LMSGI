@@ -1,25 +1,28 @@
-import { useParams } from "react-router-dom"
-import dataServicios from "@/model/data/servicios.json"
-import type { IServicio } from "@/model/interfaces/IServicio"
+import { useParams } from "react-router-dom";
+import dataServicios from "../../model/data/servicios.json";
+import type { IServicio } from "../../model/interfaces/IServicio";
 
-export const ServicioDetalle = () => {
-  const {id} = useParams()
+export default function ServiciosDetalle() {
+  const { id } = useParams();
 
-  const servicio: IServicio=dataServicios.find((serv) => serv.id === Number(id))
+  const servicio = (dataServicios as IServicio[]).find(
+    (s) => s.id === Number(id)
+  );
+
+  if (!servicio) {
+    return <div>Servicio no encontrado</div>;
+  }
 
   return (
     <div>
-      <h1>Detalle del servicio {id}</h1>
+      <h1>{servicio.titulo}</h1>
 
-      {servicio ? (
-        <div>
-          <p><strong>Nombre:</strong> {servicio.titulo}</p>
-          <p><strong>Descripción:</strong> {servicio.descripcion1}</p>
-          <p><strong>Categoría:</strong> {servicio.categoria}</p>
-        </div>
-      ) : (
-        <p>Servicio no encontrado</p>
+      <p><strong>Descripción:</strong> {servicio.descripcion}</p>
+
+      {/* SOLO SI EXISTE */}
+      {"categoria" in servicio && (
+        <p><strong>Categoría:</strong> {(servicio as any).categoria}</p>
       )}
     </div>
-  )
+  );
 }

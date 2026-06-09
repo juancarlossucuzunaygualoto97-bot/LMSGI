@@ -1,4 +1,4 @@
-import { Button } from "components/ui/button";
+import { Button } from "../../components/ui/button";
 import { IconDatabaseFilled } from "@tabler/icons-react";
 import { CircleArrowUpIcon } from "lucide-react";
 

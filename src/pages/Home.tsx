@@ -53,7 +53,9 @@ export default function Home() {
           <div className="projects reveal">
             {proyectos.map((p) => (
               <div className="project-card" key={p.id}>
-                <div className="project-card__icon">{p.icono}</div>
+                <div className="project-card__icon">
+  {"icono" in p ? (p as any).icono : "📁"}
+</div>
                 <h3 className="project-card__title">{p.titulo}</h3>
                 <p className="project-card__desc">{p.descripcion}</p>
                 <div className="project-card__tags">

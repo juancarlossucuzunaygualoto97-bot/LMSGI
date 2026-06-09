@@ -1,5 +1,6 @@
 import data from "../model/data/dashboard.json";
-import type { IMetrica, IVisitante, IProyecto } from "../Types/IDashboard";
+import type { IMetrica, IVisitante, IProyecto } from "../model/interfaces/IDashboard";
+
 import MetricasCards from "../components/charts/MetricasCard";
 import GraficoVisitantes from "../components/charts/GraficosVisitante";
 import TablaProyectos from "../components/ui/TablaProyectos";
