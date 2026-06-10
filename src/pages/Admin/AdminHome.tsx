@@ -1,4 +1,4 @@
-import { useStore } from "../../context/StoreContext";
+import { useStore } from "../../Context/StoreContext";
 import { BookOpen, Wrench, Briefcase, GraduationCap, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
