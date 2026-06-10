@@ -31,7 +31,7 @@ export default function Home() {
             <div className="hero__avatar">JC</div>
             <div className="hero__avatar-ring" />
           </div>
-          <div className="hero__badge">ðŸŽ“ Estudiante ASIR Â· 1er AÃ±o</div>
+          <div className="hero__badge"> Estudiante 1 ASIR · 1er Año</div>
           <h1 className="hero__name">
             Juan <span className="hero__name--accent">Carlos</span>
           </h1>
