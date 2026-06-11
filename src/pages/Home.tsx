@@ -1,13 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
 import titulos from "../model/data/titulos.json";
-import trabajos from "../model/data/trabajos.json";
 import type { ITitulo } from "../model/interfaces/ITitulo";
-import type { ITrabajo } from "../model/interfaces/ITrabajos";
+
+interface ITrabajo {
+  id: number;
+  titulo: string;
+  descripcion: string;
+  imagen: string;
+  tags: string;
+  link: string;
+  estado: string;
+}
 
 const hero = (titulos as ITitulo[]).find((t) => t.seccion === "hero")!;
-const proyectos = (trabajos as ITrabajo[]).slice(0, 3);
 
 export default function Home() {
+  const [trabajos, setTrabajos] = useState<ITrabajo[]>([]);
+
+  useEffect(() => {
+    supabase.from("trabajos").select("*").order("id").then(({ data }) => {
+      if (data) setTrabajos(data);
+    });
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
@@ -15,7 +31,9 @@ export default function Home() {
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [trabajos]);
+
+  const proyectos = trabajos.slice(0, 3);
 
   return (
     <>
@@ -31,7 +49,7 @@ export default function Home() {
             <div className="hero__avatar">JC</div>
             <div className="hero__avatar-ring" />
           </div>
-          <div className="hero__badge"> Estudiante 1 ASIR · 1er Año</div>
+          <div className="hero__badge">🎓 Estudiante ASIR · 1er Año</div>
           <h1 className="hero__name">
             Juan <span className="hero__name--accent">Carlos</span>
           </h1>
@@ -50,20 +68,40 @@ export default function Home() {
         <div className="container">
           <h2 className="section__title reveal">Proyectos Destacados</h2>
           <p className="section__sub reveal">Un vistazo a lo que he hecho</p>
-          <div className="projects reveal">
-            {proyectos.map((p) => (
-              <div className="project-card" key={p.id}>
-                <div className="project-card__icon">
-  {"icono" in p ? (p as any).icono : "📁"}
-</div>
-                <h3 className="project-card__title">{p.titulo}</h3>
-                <p className="project-card__desc">{p.descripcion}</p>
-                <div className="project-card__tags">
-                  {p.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+
+          {proyectos.length === 0 ? (
+            <p className="section__sub">Cargando proyectos...</p>
+          ) : (
+            <div className="projects reveal">
+              {proyectos.map((p) => (
+                <div className="project-card" key={p.id}>
+                  {p.imagen && (
+                    <div className="servicio-card__img-wrap">
+                      <img src={p.imagen} alt={p.titulo} className="servicio-card__img" />
+                    </div>
+                  )}
+
+                  <h3 className="project-card__title">{p.titulo}</h3>
+                  <p className="project-card__desc">{p.descripcion}</p>
+
+                  <div className="project-card__tags">
+                    {p.tags.split(",").map((t) => (
+                      <span key={t} className="tag">{t.trim()}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-card__footer" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <span style={{ fontSize: ".78rem", color: p.estado === "Completado" ? "#22c55e" : "#f59e0b" }}>
+                      ● {p.estado}
+                    </span>
+                    {p.link && p.link !== "#" && p.link !== "/" && !p.link.includes("peregrin.local") && (
+                      <a href={p.link} className="project-card__link">Ver proyecto →</a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

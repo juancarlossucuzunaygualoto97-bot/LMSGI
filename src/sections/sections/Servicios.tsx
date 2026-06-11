@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import titulos from "../../model/data/titulos.json";
 import type { ITitulo } from "../../model/interfaces/ITitulo";
+import AdminFab from "../../components/main/AdminFab";
 
 interface IServicio {
   id: number;
@@ -44,7 +45,9 @@ export default function Servicios() {
         {loading && <p className="section__sub">Cargando servicios...</p>}
 
         {!loading && servicios.length === 0 && (
-          <p className="section__sub">No hay servicios todavía. Añade uno desde el <a href="/admin/servicios" style={{color:"var(--accent)"}}>panel admin</a>.</p>
+          <p className="section__sub">
+            No hay servicios todavía. Añade uno desde el <a href="/admin/servicios" style={{ color: "var(--accent)" }}>panel admin</a>.
+          </p>
         )}
 
         {!loading && servicios.length > 0 && (
@@ -73,6 +76,8 @@ export default function Servicios() {
           </div>
         )}
       </div>
+
+      <AdminFab to="/admin/servicios" />
     </section>
   );
 }

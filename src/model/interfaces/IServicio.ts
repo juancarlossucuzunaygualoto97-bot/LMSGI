@@ -1,6 +1,11 @@
 export interface IServicio {
   id: number;
-  titulo: string;
+  nombre: string;
   descripcion: string;
+  tipo: string;
+  precio: number;
+  icono: string;
+  caracteristicas: string[];
   imagen: string;
+  fecha: string;
 }

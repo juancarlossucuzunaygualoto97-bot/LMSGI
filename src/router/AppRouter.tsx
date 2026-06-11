@@ -4,6 +4,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Home from "../pages/Home";
 import Servicios from "../pages/Servicios/Servicios";
 import Trabajos from "../pages/Trabajos";
+import Cursos from "../pages/Cursos";
 import Contacto from "../pages/Contacto";
 import AdminHome      from "../pages/Admin/AdminHome";
 import AdminCursos    from "../pages/Admin/AdminCursos";
@@ -22,6 +23,7 @@ export default function AppRouter() {
             <Route path="/"          element={<Home />} />
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/trabajos"  element={<Trabajos />} />
+            <Route path="/cursos"    element={<Cursos />} />
             <Route path="/contacto"  element={<Contacto />} />
           </Route>
 

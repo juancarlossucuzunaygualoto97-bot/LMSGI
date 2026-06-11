@@ -4,5 +4,6 @@
   { "id": 3, "seccion": "trabajos", "titulo": "Proyectos", "subtitulo": "Lo que he construido" },
   { "id": 4, "seccion": "contacto", "titulo": "Contacto", "subtitulo": "¿Hablamos?" },
   { "id": 5, "seccion": "formacion", "titulo": "Formación", "subtitulo": "Mi trayectoria" },
-  { "id": 6, "seccion": "qsomos", "titulo": "Quiénes Somos", "subtitulo": "Sobre mí" }
+  { "id": 6, "seccion": "qsomos", "titulo": "Quiénes Somos", "subtitulo": "Sobre mí" },
+  { "id": 7, "seccion": "cursos", "titulo": "Cursos", "subtitulo": "Formación complementaria realizada" }
 ]
