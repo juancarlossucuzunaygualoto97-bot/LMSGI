@@ -1,8 +1,8 @@
 import {
   createContext,
   useContext,
-  useState,
   useEffect,
+  useState,
   type ReactNode,
 } from "react";
 
@@ -20,18 +20,18 @@ interface Store {
   formacion: IFormacion[];
   loading: boolean;
 
-  addCurso(c: Omit<ICurso, "id">): Promise<void>;
-  addServicio(s: Omit<IServicio, "id">): Promise<void>;
-  addTrabajo(t: Omit<ITrabajo, "id">): Promise<void>;
-  addFormacion(f: Omit<IFormacion, "id">): Promise<void>;
+  addCurso: (curso: Omit<ICurso, "id">) => Promise<void>;
+  addServicio: (servicio: Omit<IServicio, "id">) => Promise<void>;
+  addTrabajo: (trabajo: Omit<ITrabajo, "id">) => Promise<void>;
+  addFormacion: (item: Omit<IFormacion, "id">) => Promise<void>;
 
-  deleteCurso(id: number): Promise<void>;
-  deleteServicio(id: number): Promise<void>;
-  deleteTrabajo(id: number): Promise<void>;
-  deleteFormacion(id: number): Promise<void>;
+  deleteCurso: (id: number) => Promise<void>;
+  deleteServicio: (id: number) => Promise<void>;
+  deleteTrabajo: (id: number) => Promise<void>;
+  deleteFormacion: (id: number) => Promise<void>;
 }
 
-const Ctx = createContext<Store>({} as Store);
+const StoreContext = createContext<Store>({} as Store);
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [cursos, setCursos] = useState<ICurso[]>([]);
@@ -41,83 +41,30 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    cargarDatos();
-  }, []);
+    cargarTodo();
 
-  async function cargarDatos() {
-    setLoading(true);
-
-    const [c, s, t, f] = await Promise.all([
-      supabase.from("cursos").select("*").order("id"),
-      supabase.from("servicios").select("*").order("id"),
-      supabase.from("trabajos").select("*").order("id"),
-      supabase.from("formacion").select("*").order("id"),
-    ]);
-
-    if (c.data) setCursos(c.data);
-    if (s.data) setServicios(s.data);
-    if (t.data) setTrabajos(t.data);
-    if (f.data) setFormacion(f.data);
-
-    setLoading(false);
-  }
-
-  useEffect(() => {
     const channel = supabase
       .channel("portfolio-realtime")
-
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "cursos" },
-        async () => {
-          const { data } = await supabase
-            .from("cursos")
-            .select("*")
-            .order("id");
-
-          if (data) setCursos(data);
-        }
+        cargarCursos
       )
-
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "servicios" },
-        async () => {
-          const { data } = await supabase
-            .from("servicios")
-            .select("*")
-            .order("id");
-
-          if (data) setServicios(data);
-        }
+        cargarServicios
       )
-
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "trabajos" },
-        async () => {
-          const { data } = await supabase
-            .from("trabajos")
-            .select("*")
-            .order("id");
-
-          if (data) setTrabajos(data);
-        }
+        cargarTrabajos
       )
-
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "formacion" },
-        async () => {
-          const { data } = await supabase
-            .from("formacion")
-            .select("*")
-            .order("id");
-
-          if (data) setFormacion(data);
-        }
+        cargarFormacion
       )
-
       .subscribe();
 
     return () => {
@@ -125,40 +72,207 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  async function addCurso(c: Omit<ICurso, "id">) {
-    await supabase.from("cursos").insert(c);
+  async function cargarTodo() {
+    setLoading(true);
+
+    await Promise.all([
+      cargarCursos(),
+      cargarServicios(),
+      cargarTrabajos(),
+      cargarFormacion(),
+    ]);
+
+    setLoading(false);
   }
 
-  async function addServicio(s: Omit<IServicio, "id">) {
-    await supabase.from("servicios").insert(s);
+  async function cargarCursos() {
+    const { data, error } = await supabase
+      .from("cursos")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (error) {
+      console.error("No se pudieron cargar los cursos", error);
+      return;
+    }
+
+    setCursos(data || []);
   }
 
-  async function addTrabajo(t: Omit<ITrabajo, "id">) {
-    await supabase.from("trabajos").insert(t);
+  async function cargarServicios() {
+    const { data, error } = await supabase
+      .from("servicios")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (error) {
+      console.error("No se pudieron cargar los servicios", error);
+      return;
+    }
+
+    setServicios(data || []);
   }
 
-  async function addFormacion(f: Omit<IFormacion, "id">) {
-    await supabase.from("formacion").insert(f);
+  async function cargarTrabajos() {
+    const { data, error } = await supabase
+      .from("trabajos")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (error) {
+      console.error("No se pudieron cargar los trabajos", error);
+      return;
+    }
+
+    setTrabajos(data || []);
+  }
+
+  async function cargarFormacion() {
+    const { data, error } = await supabase
+      .from("formacion")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (error) {
+      console.error("No se pudo cargar la formación", error);
+      return;
+    }
+
+    setFormacion(data || []);
+  }
+
+  async function addCurso(curso: Omit<ICurso, "id">) {
+    const { data, error } = await supabase
+      .from("cursos")
+      .insert(curso)
+      .select()
+      .single();
+
+    if (error) {
+      console.error("No se pudo guardar el curso", error);
+      return;
+    }
+
+    if (data) {
+      setCursos((actual) => [data, ...actual]);
+    }
+  }
+
+  async function addServicio(servicio: Omit<IServicio, "id">) {
+    const { data, error } = await supabase
+      .from("servicios")
+      .insert(servicio)
+      .select()
+      .single();
+
+    if (error) {
+      console.error("No se pudo guardar el servicio", error);
+      return;
+    }
+
+    if (data) {
+      setServicios((actual) => [data, ...actual]);
+    }
+  }
+
+  async function addTrabajo(trabajo: Omit<ITrabajo, "id">) {
+    const { data, error } = await supabase
+      .from("trabajos")
+      .insert(trabajo)
+      .select()
+      .single();
+
+    if (error) {
+      console.error("No se pudo guardar el trabajo", error);
+      return;
+    }
+
+    if (data) {
+      setTrabajos((actual) => [data, ...actual]);
+    }
+  }
+
+  async function addFormacion(item: Omit<IFormacion, "id">) {
+    const { data, error } = await supabase
+      .from("formacion")
+      .insert(item)
+      .select()
+      .single();
+
+    if (error) {
+      console.error("No se pudo guardar la formación", error);
+      return;
+    }
+
+    if (data) {
+      setFormacion((actual) => [data, ...actual]);
+    }
   }
 
   async function deleteCurso(id: number) {
-    await supabase.from("cursos").delete().eq("id", id);
+    const { error } = await supabase
+      .from("cursos")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error("No se pudo borrar el curso", error);
+      return;
+    }
+
+    setCursos((actual) => actual.filter((curso) => curso.id !== id));
   }
 
   async function deleteServicio(id: number) {
-    await supabase.from("servicios").delete().eq("id", id);
+    const { error } = await supabase
+      .from("servicios")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error("No se pudo borrar el servicio", error);
+      return;
+    }
+
+    setServicios((actual) =>
+      actual.filter((servicio) => servicio.id !== id)
+    );
   }
 
   async function deleteTrabajo(id: number) {
-    await supabase.from("trabajos").delete().eq("id", id);
+    const { error } = await supabase
+      .from("trabajos")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error("No se pudo borrar el trabajo", error);
+      return;
+    }
+
+    setTrabajos((actual) =>
+      actual.filter((trabajo) => trabajo.id !== id)
+    );
   }
 
   async function deleteFormacion(id: number) {
-    await supabase.from("formacion").delete().eq("id", id);
+    const { error } = await supabase
+      .from("formacion")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error("No se pudo borrar la formación", error);
+      return;
+    }
+
+    setFormacion((actual) =>
+      actual.filter((item) => item.id !== id)
+    );
   }
 
   return (
-    <Ctx.Provider
+    <StoreContext.Provider
       value={{
         cursos,
         servicios,
@@ -176,8 +290,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </Ctx.Provider>
+    </StoreContext.Provider>
   );
 }
 
-export const useStore = () => useContext(Ctx);
+export const useStore = () => useContext(StoreContext);
