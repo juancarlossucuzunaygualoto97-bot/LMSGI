@@ -3,7 +3,7 @@ import {
   useContext,
   useState,
   useEffect,
-  type ReactNode
+  type ReactNode,
 } from "react";
 
 import { supabase } from "../lib/supabase";
@@ -40,43 +40,84 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [formacion, setFormacion] = useState<IFormacion[]>([]);
   const [loading, setLoading] = useState(true);
 
-  /* ================= LOAD ================= */
   useEffect(() => {
-    const load = async () => {
-      setLoading(true);
-
-      const { data: cursos } = await supabase.from("cursos").select("*");
-      const { data: servicios } = await supabase.from("servicios").select("*");
-      const { data: trabajos } = await supabase.from("trabajos").select("*");
-      const { data: formacion } = await supabase.from("formacion").select("*");
-
-      setCursos(cursos || []);
-      setServicios(servicios || []);
-      setTrabajos(trabajos || []);
-      setFormacion(formacion || []);
-
-      setLoading(false);
-    };
-
-    load();
+    cargarDatos();
   }, []);
 
-  /* ================= REALTIME ================= */
+  async function cargarDatos() {
+    setLoading(true);
+
+    const [c, s, t, f] = await Promise.all([
+      supabase.from("cursos").select("*").order("id"),
+      supabase.from("servicios").select("*").order("id"),
+      supabase.from("trabajos").select("*").order("id"),
+      supabase.from("formacion").select("*").order("id"),
+    ]);
+
+    if (c.data) setCursos(c.data);
+    if (s.data) setServicios(s.data);
+    if (t.data) setTrabajos(t.data);
+    if (f.data) setFormacion(f.data);
+
+    setLoading(false);
+  }
+
   useEffect(() => {
     const channel = supabase
-      .channel("realtime-all")
-      .on("postgres_changes", { event: "*", schema: "public", table: "cursos" }, () =>
-        supabase.from("cursos").select("*").then(({ data }) => data && setCursos(data))
+      .channel("portfolio-realtime")
+
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "cursos" },
+        async () => {
+          const { data } = await supabase
+            .from("cursos")
+            .select("*")
+            .order("id");
+
+          if (data) setCursos(data);
+        }
       )
-      .on("postgres_changes", { event: "*", schema: "public", table: "servicios" }, () =>
-        supabase.from("servicios").select("*").then(({ data }) => data && setServicios(data))
+
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "servicios" },
+        async () => {
+          const { data } = await supabase
+            .from("servicios")
+            .select("*")
+            .order("id");
+
+          if (data) setServicios(data);
+        }
       )
-      .on("postgres_changes", { event: "*", schema: "public", table: "trabajos" }, () =>
-        supabase.from("trabajos").select("*").then(({ data }) => data && setTrabajos(data))
+
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "trabajos" },
+        async () => {
+          const { data } = await supabase
+            .from("trabajos")
+            .select("*")
+            .order("id");
+
+          if (data) setTrabajos(data);
+        }
       )
-      .on("postgres_changes", { event: "*", schema: "public", table: "formacion" }, () =>
-        supabase.from("formacion").select("*").then(({ data }) => data && setFormacion(data))
+
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "formacion" },
+        async () => {
+          const { data } = await supabase
+            .from("formacion")
+            .select("*")
+            .order("id");
+
+          if (data) setFormacion(data);
+        }
       )
+
       .subscribe();
 
     return () => {
@@ -84,47 +125,37 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  /* ================= ADD ================= */
-  const addCurso = async (c: Omit<ICurso, "id">) => {
-    const { data } = await supabase.from("cursos").insert(c).select().single();
-    if (data) setCursos((p) => [...p, data]);
-  };
+  async function addCurso(c: Omit<ICurso, "id">) {
+    await supabase.from("cursos").insert(c);
+  }
 
-  const addServicio = async (s: Omit<IServicio, "id">) => {
-    const { data } = await supabase.from("servicios").insert(s).select().single();
-    if (data) setServicios((p) => [...p, data]);
-  };
+  async function addServicio(s: Omit<IServicio, "id">) {
+    await supabase.from("servicios").insert(s);
+  }
 
-  const addTrabajo = async (t: Omit<ITrabajo, "id">) => {
-    const { data } = await supabase.from("trabajos").insert(t).select().single();
-    if (data) setTrabajos((p) => [...p, data]);
-  };
+  async function addTrabajo(t: Omit<ITrabajo, "id">) {
+    await supabase.from("trabajos").insert(t);
+  }
 
-  const addFormacion = async (f: Omit<IFormacion, "id">) => {
-    const { data } = await supabase.from("formacion").insert(f).select().single();
-    if (data) setFormacion((p) => [...p, data]);
-  };
+  async function addFormacion(f: Omit<IFormacion, "id">) {
+    await supabase.from("formacion").insert(f);
+  }
 
-  /* ================= DELETE ================= */
-  const deleteCurso = async (id: number) => {
+  async function deleteCurso(id: number) {
     await supabase.from("cursos").delete().eq("id", id);
-    setCursos((p) => p.filter((x) => x.id !== id));
-  };
+  }
 
-  const deleteServicio = async (id: number) => {
+  async function deleteServicio(id: number) {
     await supabase.from("servicios").delete().eq("id", id);
-    setServicios((p) => p.filter((x) => x.id !== id));
-  };
+  }
 
-  const deleteTrabajo = async (id: number) => {
+  async function deleteTrabajo(id: number) {
     await supabase.from("trabajos").delete().eq("id", id);
-    setTrabajos((p) => p.filter((x) => x.id !== id));
-  };
+  }
 
-  const deleteFormacion = async (id: number) => {
+  async function deleteFormacion(id: number) {
     await supabase.from("formacion").delete().eq("id", id);
-    setFormacion((p) => p.filter((x) => x.id !== id));
-  };
+  }
 
   return (
     <Ctx.Provider
