@@ -141,7 +141,6 @@ export default function Cursos() {
         )}
       </div>
 
-      {/* BOTÓN ADMIN FLUTUANTE */}
       <button
         className="admin-fab"
         onClick={() => setShowModal(true)}
@@ -149,14 +148,12 @@ export default function Cursos() {
         <Plus size={24} />
       </button>
 
-      {/* MODAL CREAR CURSO */}
       {showModal && (
         <CursosModal
           onClose={() => setShowModal(false)}
         />
       )}
 
-      {/* BOTÓN ADMIN (solo tú) */}
       <AdminFab to="/admin/cursos" />
     </section>
   );
