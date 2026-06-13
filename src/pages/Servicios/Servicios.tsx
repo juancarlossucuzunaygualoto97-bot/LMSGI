@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
-import servicios from "../../model/data/servicios.json";
+import { supabase } from "../../lib/supabase";
 import titulos from "../../model/data/titulos.json";
 import type { IServicio } from "../../model/interfaces/IServicio";
 import type { ITitulo } from "../../model/interfaces/ITitulo";
 import ServiciosCard from "../../components/main/servicios/ServiciosCard";
 import ServiciosModal from "../../components/ServiciosModal";
 import AdminFab from "../../components/main/AdminFab";
-
-const datos = servicios as IServicio[];
 
 const titulo =
   (titulos as ITitulo[]).find((t) => t.seccion === "servicios") || {
@@ -17,7 +15,36 @@ const titulo =
   };
 
 export default function Servicios() {
+  const [servicios, setServicios] = useState<IServicio[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    cargarServicios();
+
+    const channel = supabase
+      .channel("servicios-page")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "servicios" },
+        () => cargarServicios()
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
+  async function cargarServicios() {
+    const { data } = await supabase
+      .from("servicios")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (data) setServicios(data);
+    setLoading(false);
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,7 +60,7 @@ export default function Servicios() {
       .forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [servicios]);
 
   return (
     <section className="section" style={{ paddingTop: "120px" }}>
@@ -41,9 +68,19 @@ export default function Servicios() {
         <h2 className="section__title reveal">{titulo.titulo}</h2>
         <p className="section__sub reveal">{titulo.subtitulo}</p>
 
-        <div className="reveal">
-          <ServiciosCard servicios={datos} />
-        </div>
+        {loading && <p className="section__sub">Cargando servicios...</p>}
+
+        {!loading && servicios.length === 0 && (
+          <p className="section__sub">
+            Todavía no hay servicios publicados.
+          </p>
+        )}
+
+        {!loading && servicios.length > 0 && (
+          <div className="reveal">
+            <ServiciosCard servicios={servicios} />
+          </div>
+        )}
       </div>
 
       <button
