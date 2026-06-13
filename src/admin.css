@@ -1,6 +1,3 @@
-/* ═══════════════════════════════════════
-   ADMIN — LAYOUT
-═══════════════════════════════════════ */
 .adm-layout {
   display: flex;
   min-height: 100vh;
@@ -13,9 +10,6 @@
   background: #f8fafc;
 }
 
-/* ═══════════════════════════════════════
-   ADMIN SIDEBAR
-═══════════════════════════════════════ */
 .asb {
   width: 220px;
   min-height: 100vh;
@@ -139,9 +133,7 @@
 .asb__user-info span:first-child { font-size: 0.8rem; font-weight: 600; color: #0f172a; }
 .asb__user-info span:last-child  { font-size: 0.7rem; color: #94a3b8; }
 
-/* ═══════════════════════════════════════
-   ADMIN PAGE
-═══════════════════════════════════════ */
+
 .apage {
   padding: 2rem 2.5rem;
   max-width: 1100px;
@@ -186,9 +178,7 @@
   color: #fff;
 }
 
-/* ═══════════════════════════════════════
-   TABLA
-═══════════════════════════════════════ */
+
 .atable-wrap {
   background: #fff;
   border: 1px solid #e2e8f0;
@@ -252,9 +242,6 @@
   font-size: 0.88rem;
 }
 
-/* ═══════════════════════════════════════
-   FORMULARIO
-═══════════════════════════════════════ */
 .aform-wrap {
   display: flex;
   justify-content: center;
@@ -351,9 +338,7 @@
 }
 .aform__legal a { color: #475569; text-decoration: underline; }
 
-/* ═══════════════════════════════════════
-   ADMIN HOME
-═══════════════════════════════════════ */
+
 .ahome-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -405,9 +390,6 @@
   text-align: center;
 }
 
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
 @media (max-width: 768px) {
   .asb { display: none; }
   .apage { padding: 1.25rem; }

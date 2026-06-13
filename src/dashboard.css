@@ -1,6 +1,4 @@
-/* ═══════════════════════════════════════
-   DASHBOARD — TOKENS
-═══════════════════════════════════════ */
+
 :root {
   --dash-bg:       #0f1117;
   --dash-surface:  #161b27;
@@ -16,9 +14,7 @@
   --dash-mono:     'JetBrains Mono', monospace;
 }
 
-/* ═══════════════════════════════════════
-   LAYOUT
-═══════════════════════════════════════ */
+
 .dash-layout {
   display: flex;
   min-height: 100vh;
@@ -40,9 +36,6 @@
   max-width: 1400px;
 }
 
-/* ═══════════════════════════════════════
-   SIDEBAR
-═══════════════════════════════════════ */
 .sidebar {
   width: var(--dash-sidebar);
   min-height: 100vh;
@@ -148,9 +141,6 @@
   gap: 1px;
 }
 
-/* ═══════════════════════════════════════
-   METRICAS
-═══════════════════════════════════════ */
 .metricas-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -192,9 +182,6 @@
   color: var(--dash-muted);
 }
 
-/* ═══════════════════════════════════════
-   GRAFICO
-═══════════════════════════════════════ */
 .grafico-card {
   background: var(--dash-surface);
   border: 1px solid var(--dash-border);
@@ -239,9 +226,7 @@
   color: var(--dash-text);
 }
 
-/* ═══════════════════════════════════════
-   TABLA
-═══════════════════════════════════════ */
+
 .tabla-card {
   background: var(--dash-surface);
   border: 1px solid var(--dash-border);
@@ -406,9 +391,6 @@
 }
 .tabla__assign:hover { color: var(--dash-text); border-color: rgba(255,255,255,0.15); }
 
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
 @media (max-width: 1200px) {
   .metricas-grid { grid-template-columns: repeat(2, 1fr); }
 }
