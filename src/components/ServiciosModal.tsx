@@ -26,7 +26,9 @@ export default function ServiciosModal({ onClose }: Props) {
       precio: Number(form.precio),
       icono: form.icono,
       imagen: form.imagen,
-      caracteristicas: form.caracteristicas,
+      caracteristicas: form.caracteristicas
+        .split(",")
+        .map((c) => c.trim()),
     });
 
     onClose();

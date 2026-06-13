@@ -8,6 +8,7 @@ const EMPTY = {
   tipo: "",
   precio: 0,
   icono: "",
+  imagen: "",
   caracteristicas: ""
 };
 
@@ -47,7 +48,10 @@ export default function AdminServicios() {
         tipo: form.tipo,
         precio: form.precio ? Number(form.precio) : 0,
         icono: form.icono,
-        caracteristicas: form.caracteristicas,
+        imagen: form.imagen,
+        caracteristicas: form.caracteristicas
+          .split(",")
+          .map((c) => c.trim()),
       });
 
       setForm(EMPTY);
@@ -193,6 +197,15 @@ export default function AdminServicios() {
                 <input
                   name="icono"
                   value={form.icono}
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="aform__field">
+                <label>Imagen URL</label>
+                <input
+                  name="imagen"
+                  value={form.imagen}
                   onChange={onChange}
                 />
               </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Trash2, Plus, List } from "lucide-react";
 import { useStore } from "../../Context/StoreContext";
 
-const EMPTY = { titulo: "", descripcion: "", tags: "", link: "", estado: "Completado" };
+const EMPTY = { titulo: "", descripcion: "", imagen: "", tags: "", link: "", estado: "Completado" };
 
 export default function AdminTrabajos() {
   const { trabajos, addTrabajo, deleteTrabajo, loading } = useStore();
@@ -19,7 +19,14 @@ export default function AdminTrabajos() {
   const onSubmit = async () => {
     if (!form.titulo.trim()) return;
     setSaving(true);
-    await addTrabajo(form);
+    await addTrabajo({
+      titulo: form.titulo,
+      descripcion: form.descripcion,
+      imagen: form.imagen,
+      tags: form.tags.split(",").map((t) => t.trim()),
+      link: form.link,
+      estado: form.estado,
+    });
     setForm(EMPTY);
     setOk(true);
     setSaving(false);
@@ -76,6 +83,10 @@ export default function AdminTrabajos() {
               <div className="aform__field">
                 <label>Descripción</label>
                 <input name="descripcion" value={form.descripcion} onChange={onChange} placeholder="Descripción del proyecto"/>
+              </div>
+              <div className="aform__field">
+                <label>Imagen URL</label>
+                <input name="imagen" value={form.imagen} onChange={onChange} placeholder="https://..."/>
               </div>
               <div className="aform__field">
                 <label>Tags (separados por coma)</label>

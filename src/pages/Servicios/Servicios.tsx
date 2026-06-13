@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Plus } from "lucide-react";
 import servicios from "../../model/data/servicios.json";
 import titulos from "../../model/data/titulos.json";
 import type { IServicio } from "../../model/interfaces/IServicio";
 import type { ITitulo } from "../../model/interfaces/ITitulo";
 import ServiciosCard from "../../components/main/servicios/ServiciosCard";
+import ServiciosModal from "../../components/ServiciosModal";
+import AdminFab from "../../components/main/AdminFab";
 
 const datos = servicios as IServicio[];
 
@@ -14,6 +17,8 @@ const titulo =
   };
 
 export default function Servicios() {
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -40,6 +45,19 @@ export default function Servicios() {
           <ServiciosCard servicios={datos} />
         </div>
       </div>
+
+      <button
+        className="admin-fab"
+        onClick={() => setShowModal(true)}
+      >
+        <Plus size={24} />
+      </button>
+
+      {showModal && (
+        <ServiciosModal onClose={() => setShowModal(false)} />
+      )}
+
+      <AdminFab to="/admin/servicios" />
     </section>
   );
 }

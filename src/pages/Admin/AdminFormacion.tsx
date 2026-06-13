@@ -6,7 +6,8 @@ const EMPTY = {
   titulo: "",
   centro: "",
   año: "",
-  descripcion: ""
+  descripcion: "",
+  imagen: ""
 };
 
 export default function AdminFormacion() {
@@ -97,6 +98,7 @@ export default function AdminFormacion() {
           <input name="centro" value={form.centro} onChange={onChange} placeholder="Centro" />
           <input name="año" value={form.año} onChange={onChange} placeholder="Año" />
           <input name="descripcion" value={form.descripcion} onChange={onChange} placeholder="Descripción" />
+          <input name="imagen" value={form.imagen} onChange={onChange} placeholder="Imagen URL" />
 
           {ok && <p>Guardado ✔</p>}
 
