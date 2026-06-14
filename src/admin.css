@@ -316,6 +316,18 @@
   margin-bottom: 1rem;
   text-align: center;
 }
+
+.aform__err {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+  color: #dc2626;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 .aform__submit {
   width: 100%;
   padding: 0.8rem;
@@ -331,12 +343,7 @@
   margin-bottom: 1.25rem;
 }
 .aform__submit:hover { background: #1e293b; }
-.aform__legal {
-  text-align: center;
-  font-size: 0.75rem;
-  color: #94a3b8;
-}
-.aform__legal a { color: #475569; text-decoration: underline; }
+
 
 
 .ahome-grid {

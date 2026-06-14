@@ -3,22 +3,24 @@ import { supabase } from "../lib/supabase";
 import titulos from "../model/data/titulos.json";
 import type { ITitulo } from "../model/interfaces/ITitulo";
 
-interface ITrabajo {
-  id: number;
-  titulo: string;
-  descripcion: string;
-  imagen: string;
-  tags: string;
-  link: string;
-  estado: string;
-}
-
 const hero = (titulos as ITitulo[]).find((t) => t.seccion === "hero")!;
 
+function tagsToList(tags: unknown): string[] {
+  if (!tags) return [];
+  if (Array.isArray(tags)) return tags;
+  if (typeof tags !== "string") return [];
+  const t = tags.trim();
+  if (t.startsWith("[") && t.endsWith("]")) {
+    try { return JSON.parse(t); } catch {}
+  }
+  return t.split(",").map(s => s.trim()).filter(Boolean);
+}
+
 export default function Home() {
-  const [trabajos, setTrabajos] = useState<ITrabajo[]>([]);
+  const [trabajos, setTrabajos] = useState<any[]>([]);
 
   useEffect(() => {
+    if (!supabase) return;
     supabase.from("trabajos").select("*").order("id").then(({ data }) => {
       if (data) setTrabajos(data);
     });
@@ -37,7 +39,6 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO */}
       <section className="hero">
         <div className="hero__bg">
           <div className="hero__orb hero__orb--1" />
@@ -63,7 +64,6 @@ export default function Home() {
         <div className="hero__scroll-hint"><span /></div>
       </section>
 
-      {/* PROYECTOS PREVIEW */}
       <section className="section">
         <div className="container">
           <h2 className="section__title reveal">Proyectos Destacados</h2>
@@ -73,7 +73,7 @@ export default function Home() {
             <p className="section__sub">Cargando proyectos...</p>
           ) : (
             <div className="projects reveal">
-              {proyectos.map((p) => (
+              {proyectos.map((p: any) => (
                 <div className="project-card" key={p.id}>
                   {p.imagen && (
                     <div className="servicio-card__img-wrap">
@@ -85,8 +85,8 @@ export default function Home() {
                   <p className="project-card__desc">{p.descripcion}</p>
 
                   <div className="project-card__tags">
-                    {p.tags.split(",").map((t) => (
-                      <span key={t} className="tag">{t.trim()}</span>
+                    {tagsToList(p.tags).map((t) => (
+                      <span key={t} className="tag">{t}</span>
                     ))}
                   </div>
 

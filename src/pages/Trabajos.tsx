@@ -4,23 +4,25 @@ import titulos from "../model/data/titulos.json";
 import type { ITitulo } from "../model/interfaces/ITitulo";
 import AdminFab from "../components/main/AdminFab";
 
-interface ITrabajo {
-  id: number;
-  titulo: string;
-  descripcion: string;
-  imagen: string;
-  tags: string;
-  link: string;
-  estado: string;
-}
-
 const titulo = (titulos as ITitulo[]).find((t) => t.seccion === "trabajos")!;
 
+function tagsToList(tags: unknown): string[] {
+  if (!tags) return [];
+  if (Array.isArray(tags)) return tags;
+  if (typeof tags !== "string") return [];
+  const t = tags.trim();
+  if (t.startsWith("[") && t.endsWith("]")) {
+    try { return JSON.parse(t); } catch {}
+  }
+  return t.split(",").map(s => s.trim()).filter(Boolean);
+}
+
 export default function Trabajos() {
-  const [trabajos, setTrabajos] = useState<ITrabajo[]>([]);
+  const [trabajos, setTrabajos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!supabase) return;
     supabase.from("trabajos").select("*").order("id").then(({ data }) => {
       if (data) setTrabajos(data);
       setLoading(false);
@@ -52,7 +54,7 @@ export default function Trabajos() {
 
         {!loading && trabajos.length > 0 && (
           <div className="projects reveal">
-            {trabajos.map((p) => (
+            {trabajos.map((p: any) => (
               <div className="project-card" key={p.id}>
                 {p.imagen && (
                   <div className="servicio-card__img-wrap">
@@ -64,8 +66,8 @@ export default function Trabajos() {
                 <p className="project-card__desc">{p.descripcion}</p>
 
                 <div className="project-card__tags">
-                  {p.tags.split(",").map((t) => (
-                    <span key={t} className="tag">{t.trim()}</span>
+                  {tagsToList(p.tags).map((t) => (
+                    <span key={t} className="tag">{t}</span>
                   ))}
                 </div>
 

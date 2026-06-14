@@ -9,6 +9,7 @@ export default function AdminTrabajos() {
   const [vista, setVista] = useState<"lista"|"nuevo">("lista");
   const [form, setForm]   = useState(EMPTY);
   const [ok, setOk]       = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [saving, setSaving] = useState(false);
 
   if (loading) return <div className="apage"><p className="aempty">Cargando datos desde Supabase...</p></div>;
@@ -18,19 +19,25 @@ export default function AdminTrabajos() {
 
   const onSubmit = async () => {
     if (!form.titulo.trim()) return;
-    setSaving(true);
-    await addTrabajo({
-      titulo: form.titulo,
-      descripcion: form.descripcion,
-      imagen: form.imagen,
-      tags: form.tags.split(",").map((t) => t.trim()),
-      link: form.link,
-      estado: form.estado,
-    });
-    setForm(EMPTY);
-    setOk(true);
-    setSaving(false);
-    setTimeout(() => { setOk(false); setVista("lista"); }, 1400);
+    try {
+      setSaving(true);
+      setErrMsg("");
+      await addTrabajo({
+        titulo: form.titulo,
+        descripcion: form.descripcion,
+        imagen: form.imagen,
+        tags: form.tags.split(",").map((t) => t.trim()),
+        link: form.link,
+        estado: form.estado,
+      });
+      setForm(EMPTY);
+      setOk(true);
+      setTimeout(() => { setOk(false); setVista("lista"); }, 1400);
+    } catch (err: any) {
+      setErrMsg(err?.message || "Error al guardar trabajo");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -104,11 +111,11 @@ export default function AdminTrabajos() {
                 </select>
               </div>
             </div>
-            {ok && <div className="aform__ok">✓ Trabajo guardado en Supabase correctamente</div>}
+            {errMsg && <div className="aform__err">✗ {errMsg}</div>}
+            {ok && <div className="aform__ok">✓ Trabajo guardado correctamente</div>}
             <button className="aform__submit" onClick={onSubmit} disabled={saving}>
               {saving ? "Guardando..." : "Insertar Trabajo"}
             </button>
-            <p className="aform__legal">By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
           </div>
         </div>
       )}

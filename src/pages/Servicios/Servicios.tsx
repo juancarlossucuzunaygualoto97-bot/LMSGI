@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { Plus } from "lucide-react";
 import { supabase } from "../../lib/supabase";
 import titulos from "../../model/data/titulos.json";
 import type { IServicio } from "../../model/interfaces/IServicio";
 import type { ITitulo } from "../../model/interfaces/ITitulo";
 import ServiciosCard from "../../components/main/servicios/ServiciosCard";
-import ServiciosModal from "../../components/ServiciosModal";
 import AdminFab from "../../components/main/AdminFab";
 
 const titulo =
@@ -17,11 +15,11 @@ const titulo =
 export default function Servicios() {
   const [servicios, setServicios] = useState<IServicio[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     cargarServicios();
 
+    if (!supabase) return;
     const channel = supabase
       .channel("servicios-page")
       .on(
@@ -37,6 +35,7 @@ export default function Servicios() {
   }, []);
 
   async function cargarServicios() {
+    if (!supabase) { setLoading(false); return; }
     const { data } = await supabase
       .from("servicios")
       .select("*")
@@ -82,17 +81,6 @@ export default function Servicios() {
           </div>
         )}
       </div>
-
-      <button
-        className="admin-fab"
-        onClick={() => setShowModal(true)}
-      >
-        <Plus size={24} />
-      </button>
-
-      {showModal && (
-        <ServiciosModal onClose={() => setShowModal(false)} />
-      )}
 
       <AdminFab to="/admin/servicios" />
     </section>

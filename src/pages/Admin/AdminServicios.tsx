@@ -18,6 +18,7 @@ export default function AdminServicios() {
   const [vista, setVista] = useState<"lista" | "nuevo">("lista");
   const [form, setForm] = useState(EMPTY);
   const [ok, setOk] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [saving, setSaving] = useState(false);
 
   if (loading)
@@ -41,6 +42,7 @@ export default function AdminServicios() {
 
     try {
       setSaving(true);
+      setErrMsg("");
 
       await addServicio({
         nombre: form.nombre,
@@ -62,9 +64,8 @@ export default function AdminServicios() {
         setVista("lista");
       }, 1400);
 
-    } catch (err) {
-      console.error(err);
-      alert("Error al guardar el servicio");
+    } catch (err: any) {
+      setErrMsg(err?.message || "Error al guardar el servicio");
     } finally {
       setSaving(false);
     }
@@ -101,13 +102,10 @@ export default function AdminServicios() {
         </div>
       </div>
 
-      {/* LISTADO */}
       {vista === "lista" && (
         <div className="atable-wrap">
           {servicios.length === 0 ? (
-            <p className="aempty">
-              No hay servicios. Pulsa "Nuevo" para añadir uno.
-            </p>
+            <p className="aempty">No hay servicios. Pulsa "Nuevo" para añadir uno.</p>
           ) : (
             <table className="atable">
               <thead>
@@ -145,92 +143,57 @@ export default function AdminServicios() {
         </div>
       )}
 
-      {/* FORMULARIO */}
       {vista === "nuevo" && (
         <div className="aform-wrap">
           <div className="aform">
             <h2 className="aform__titulo">Insertar Nuevo Servicio</h2>
-            <p className="aform__sub">
-              Complete el formulario con la información del servicio.
-            </p>
 
             <div className="aform__grid">
               <div className="aform__field">
                 <label>Nombre</label>
-                <input
-                  name="nombre"
-                  value={form.nombre}
-                  onChange={onChange}
-                />
+                <input name="nombre" value={form.nombre} onChange={onChange} />
               </div>
 
               <div className="aform__field">
                 <label>Descripción</label>
-                <input
-                  name="descripcion"
-                  value={form.descripcion}
-                  onChange={onChange}
-                />
+                <input name="descripcion" value={form.descripcion} onChange={onChange} />
               </div>
 
               <div className="aform__field">
                 <label>Tipo</label>
-                <input
-                  name="tipo"
-                  value={form.tipo}
-                  onChange={onChange}
-                />
+                <input name="tipo" value={form.tipo} onChange={onChange} />
               </div>
 
               <div className="aform__field">
                 <label>Precio</label>
-                <input
-                  name="precio"
-                  type="number"
-                  value={form.precio}
-                  onChange={onChange}
-                />
+                <input name="precio" type="number" value={form.precio} onChange={onChange} />
               </div>
 
               <div className="aform__field">
                 <label>Icono</label>
-                <input
-                  name="icono"
-                  value={form.icono}
-                  onChange={onChange}
-                />
+                <input name="icono" value={form.icono} onChange={onChange} />
               </div>
 
               <div className="aform__field">
                 <label>Imagen URL</label>
-                <input
-                  name="imagen"
-                  value={form.imagen}
-                  onChange={onChange}
-                />
+                <input name="imagen" value={form.imagen} onChange={onChange} />
               </div>
 
               <div className="aform__field aform__field--full">
-                <label>Características</label>
-                <input
-                  name="caracteristicas"
-                  value={form.caracteristicas}
-                  onChange={onChange}
-                />
+                <label>Características (separadas por coma)</label>
+                <input name="caracteristicas" value={form.caracteristicas} onChange={onChange} />
               </div>
             </div>
 
-            {ok && (
-              <div className="aform__ok">
-                ✓ Servicio guardado correctamente
-              </div>
+            {errMsg && (
+              <div className="aform__err">✗ {errMsg}</div>
             )}
 
-            <button
-              className="aform__submit"
-              onClick={onSubmit}
-              disabled={saving}
-            >
+            {ok && (
+              <div className="aform__ok">✓ Servicio guardado correctamente</div>
+            )}
+
+            <button className="aform__submit" onClick={onSubmit} disabled={saving}>
               {saving ? "Guardando..." : "Insertar Servicio"}
             </button>
           </div>

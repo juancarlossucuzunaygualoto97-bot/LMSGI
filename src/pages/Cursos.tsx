@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { Plus } from "lucide-react";
-
 import { supabase } from "../lib/supabase";
 import titulos from "../model/data/titulos.json";
 
 import type { ITitulo } from "../model/interfaces/ITitulo";
 import type { ICurso } from "../model/interfaces/ICurso";
 
-import CursosModal from "../components/CursosModal";
 import AdminFab from "../components/main/AdminFab";
 
 const titulo = (titulos as ITitulo[]).find(
@@ -17,11 +14,11 @@ const titulo = (titulos as ITitulo[]).find(
 export default function Cursos() {
   const [cursos, setCursos] = useState<ICurso[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     cargarCursos();
 
+    if (!supabase) return;
     const channel = supabase
       .channel("cursos-realtime")
       .on(
@@ -41,6 +38,7 @@ export default function Cursos() {
   }, []);
 
   async function cargarCursos() {
+    if (!supabase) { setLoading(false); return; }
     const { data } = await supabase
       .from("cursos")
       .select("*")
@@ -140,19 +138,6 @@ export default function Cursos() {
           </div>
         )}
       </div>
-
-      <button
-        className="admin-fab"
-        onClick={() => setShowModal(true)}
-      >
-        <Plus size={24} />
-      </button>
-
-      {showModal && (
-        <CursosModal
-          onClose={() => setShowModal(false)}
-        />
-      )}
 
       <AdminFab to="/admin/cursos" />
     </section>

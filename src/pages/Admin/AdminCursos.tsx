@@ -18,6 +18,7 @@ export default function AdminCursos() {
   const [vista, setVista] = useState<"lista" | "nuevo">("lista");
   const [form, setForm] = useState(EMPTY);
   const [ok, setOk] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [saving, setSaving] = useState(false);
 
   if (loading)
@@ -39,6 +40,7 @@ export default function AdminCursos() {
 
     try {
       setSaving(true);
+      setErrMsg("");
 
       await addCurso({
         titulo: form.titulo,
@@ -58,9 +60,8 @@ export default function AdminCursos() {
         setVista("lista");
       }, 1400);
 
-    } catch (err) {
-      console.error(err);
-      alert("Error al guardar curso");
+    } catch (err: any) {
+      setErrMsg(err?.message || "Error al guardar curso");
     } finally {
       setSaving(false);
     }
@@ -141,6 +142,8 @@ export default function AdminCursos() {
               <input name="descripcion" placeholder="Descripción" value={form.descripcion} onChange={onChange} />
               <input name="tags" placeholder="Tags (separados por coma)" value={form.tags} onChange={onChange} />
             </div>
+
+            {errMsg && <div className="aform__err">✗ {errMsg}</div>}
 
             {ok && <div className="aform__ok">✓ Guardado</div>}
 
