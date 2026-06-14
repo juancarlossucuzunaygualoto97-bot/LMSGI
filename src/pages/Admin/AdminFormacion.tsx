@@ -7,7 +7,6 @@ const EMPTY = {
   centro: "",
   año: "",
   descripcion: "",
-  imagen: ""
 };
 
 export default function AdminFormacion() {
@@ -16,6 +15,7 @@ export default function AdminFormacion() {
   const [vista, setVista] = useState<"lista" | "nuevo">("lista");
   const [form, setForm] = useState(EMPTY);
   const [ok, setOk] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [saving, setSaving] = useState(false);
 
   if (loading)
@@ -37,6 +37,7 @@ export default function AdminFormacion() {
 
     try {
       setSaving(true);
+      setErrMsg("");
 
       await addFormacion(form);
 
@@ -48,9 +49,8 @@ export default function AdminFormacion() {
         setVista("lista");
       }, 1400);
 
-    } catch (err) {
-      console.error(err);
-      alert("Error al guardar formación");
+    } catch (err: any) {
+      setErrMsg(err?.message || "Error al guardar formación");
     } finally {
       setSaving(false);
     }
@@ -98,7 +98,7 @@ export default function AdminFormacion() {
           <input name="centro" value={form.centro} onChange={onChange} placeholder="Centro" />
           <input name="año" value={form.año} onChange={onChange} placeholder="Año" />
           <input name="descripcion" value={form.descripcion} onChange={onChange} placeholder="Descripción" />
-          <input name="imagen" value={form.imagen} onChange={onChange} placeholder="Imagen URL" />
+          {errMsg && <div className="aform__err">✗ {errMsg}</div>}
 
           {ok && <p>Guardado ✔</p>}
 

@@ -5,7 +5,5 @@ export interface ICurso {
   categoria: string;
   precio: number;
   imagen: string;
-  descripcion: string;
-  tags: string[];
-  fecha: string;
+  created_at: string;
 }

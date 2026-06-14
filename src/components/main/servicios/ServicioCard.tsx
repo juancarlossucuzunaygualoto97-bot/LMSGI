@@ -5,24 +5,17 @@ interface Props {
 }
 
 export default function ServicioCard({ servicio }: Props) {
-  const caracteristicas = Array.isArray(servicio.caracteristicas)
-    ? servicio.caracteristicas
-    : typeof servicio.caracteristicas === "string"
-      ? servicio.caracteristicas.split(",").map((c) => c.trim())
-      : [];
+  const caracteristicas = servicio.caracteristicas
+    ? servicio.caracteristicas.split(",").map((c) => c.trim())
+    : [];
 
   return (
     <div className="project-card">
       {servicio.imagen && (
         <div className="servicio-card__img-wrap">
-          <img
-            src={servicio.imagen}
-            alt={servicio.nombre}
-            className="servicio-card__img"
-          />
+          <img src={servicio.imagen} alt={servicio.nombre} className="servicio-card__img" />
         </div>
       )}
-
       <h3 className="project-card__title">{servicio.nombre}</h3>
       <p className="project-card__desc">{servicio.descripcion}</p>
 

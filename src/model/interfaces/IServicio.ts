@@ -5,7 +5,7 @@ export interface IServicio {
   tipo: string;
   precio: number;
   icono: string;
-  caracteristicas: string[];
   imagen: string;
-  fecha: string;
+  caracteristicas: string;
+  created_at: string;
 }

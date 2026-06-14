@@ -3,8 +3,8 @@ export interface ITrabajo {
   titulo: string;
   descripcion: string;
   imagen: string;
-  tags: string[];
+  tags: string;
   link: string;
   estado: string;
-  fecha: string;
+  created_at: string;
 }

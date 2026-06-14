@@ -4,6 +4,5 @@ export interface IFormacion {
   centro: string;
   año: string;
   descripcion: string;
-  imagen: string;
-  fecha: string;
+  created_at: string;
 }

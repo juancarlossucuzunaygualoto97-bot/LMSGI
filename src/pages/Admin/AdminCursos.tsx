@@ -8,8 +8,6 @@ const EMPTY = {
   categoria: "",
   precio: 0,
   imagen: "",
-  descripcion: "",
-  tags: ""
 };
 
 export default function AdminCursos() {
@@ -47,9 +45,6 @@ export default function AdminCursos() {
         academia: form.academia,
         categoria: form.categoria,
         precio: form.precio ? Number(form.precio) : 0,
-        imagen: form.imagen,
-        descripcion: form.descripcion,
-        tags: form.tags.split(",").map((t) => t.trim()),
       });
 
       setForm(EMPTY);
@@ -139,8 +134,6 @@ export default function AdminCursos() {
               <input name="categoria" placeholder="Categoría" value={form.categoria} onChange={onChange} />
               <input name="precio" type="number" placeholder="Precio" value={form.precio} onChange={onChange} />
               <input name="imagen" placeholder="Imagen URL" value={form.imagen} onChange={onChange} />
-              <input name="descripcion" placeholder="Descripción" value={form.descripcion} onChange={onChange} />
-              <input name="tags" placeholder="Tags (separados por coma)" value={form.tags} onChange={onChange} />
             </div>
 
             {errMsg && <div className="aform__err">✗ {errMsg}</div>}

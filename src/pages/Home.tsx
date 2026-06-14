@@ -5,10 +5,8 @@ import type { ITitulo } from "../model/interfaces/ITitulo";
 
 const hero = (titulos as ITitulo[]).find((t) => t.seccion === "hero")!;
 
-function tagsToList(tags: unknown): string[] {
+function tagsToList(tags: string): string[] {
   if (!tags) return [];
-  if (Array.isArray(tags)) return tags;
-  if (typeof tags !== "string") return [];
   const t = tags.trim();
   if (t.startsWith("[") && t.endsWith("]")) {
     try { return JSON.parse(t); } catch {}
@@ -80,7 +78,6 @@ export default function Home() {
                       <img src={p.imagen} alt={p.titulo} className="servicio-card__img" />
                     </div>
                   )}
-
                   <h3 className="project-card__title">{p.titulo}</h3>
                   <p className="project-card__desc">{p.descripcion}</p>
 

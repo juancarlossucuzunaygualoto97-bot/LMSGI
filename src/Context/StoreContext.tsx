@@ -32,12 +32,6 @@ interface Store {
 
 const StoreContext = createContext<Store>({} as Store);
 
-function listToString(v: string | string[] | undefined | null): string {
-  if (!v) return "";
-  if (Array.isArray(v)) return v.join(", ");
-  return v;
-}
-
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [cursos, setCursos] = useState<ICurso[]>([]);
   const [servicios, setServicios] = useState<IServicio[]>([]);
@@ -99,9 +93,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   async function addCurso(curso: Omit<ICurso, "id">) {
     if (!supabase) throw new Error("Supabase no está configurado");
     const { data, error } = await supabase.from("cursos").insert({
-      ...curso,
-      tags: listToString(curso.tags),
-      fecha: curso.fecha || new Date().toISOString(),
+      titulo: curso.titulo,
+      academia: curso.academia,
+      categoria: curso.categoria,
+      precio: curso.precio,
+      imagen: curso.imagen || null,
     }).select().single();
     if (error) throw error;
     if (data) setCursos((prev) => [data, ...prev]);
@@ -110,9 +106,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   async function addServicio(servicio: Omit<IServicio, "id">) {
     if (!supabase) throw new Error("Supabase no está configurado");
     const { data, error } = await supabase.from("servicios").insert({
-      ...servicio,
-      caracteristicas: listToString(servicio.caracteristicas),
-      fecha: servicio.fecha || new Date().toISOString(),
+      nombre: servicio.nombre,
+      descripcion: servicio.descripcion,
+      tipo: servicio.tipo,
+      precio: servicio.precio,
+      icono: servicio.icono,
+      imagen: servicio.imagen || null,
+      caracteristicas: servicio.caracteristicas,
     }).select().single();
     if (error) throw error;
     if (data) setServicios((prev) => [data, ...prev]);
@@ -121,9 +121,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   async function addTrabajo(trabajo: Omit<ITrabajo, "id">) {
     if (!supabase) throw new Error("Supabase no está configurado");
     const { data, error } = await supabase.from("trabajos").insert({
-      ...trabajo,
-      tags: listToString(trabajo.tags),
-      fecha: trabajo.fecha || new Date().toISOString(),
+      titulo: trabajo.titulo,
+      descripcion: trabajo.descripcion,
+      imagen: trabajo.imagen || null,
+      tags: trabajo.tags,
+      link: trabajo.link,
+      estado: trabajo.estado,
     }).select().single();
     if (error) throw error;
     if (data) setTrabajos((prev) => [data, ...prev]);
@@ -132,8 +135,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   async function addFormacion(item: Omit<IFormacion, "id">) {
     if (!supabase) throw new Error("Supabase no está configurado");
     const { data, error } = await supabase.from("formacion").insert({
-      ...item,
-      fecha: item.fecha || new Date().toISOString(),
+      titulo: item.titulo,
+      centro: item.centro,
+      año: item.año,
+      descripcion: item.descripcion,
     }).select().single();
     if (error) throw error;
     if (data) setFormacion((prev) => [data, ...prev]);

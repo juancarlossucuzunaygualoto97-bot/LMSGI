@@ -25,8 +25,7 @@ export default function AdminTrabajos() {
       await addTrabajo({
         titulo: form.titulo,
         descripcion: form.descripcion,
-        imagen: form.imagen,
-        tags: form.tags.split(",").map((t) => t.trim()),
+        tags: form.tags,
         link: form.link,
         estado: form.estado,
       });

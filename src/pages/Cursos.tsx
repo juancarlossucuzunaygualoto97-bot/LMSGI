@@ -87,21 +87,12 @@ export default function Cursos() {
               <div className="project-card" key={curso.id}>
                 {curso.imagen && (
                   <div className="servicio-card__img-wrap">
-                    <img
-                      src={curso.imagen}
-                      alt={curso.titulo}
-                      className="servicio-card__img"
-                    />
+                    <img src={curso.imagen} alt={curso.titulo} className="servicio-card__img" />
                   </div>
                 )}
-
                 <h3 className="project-card__title">
                   {curso.titulo}
                 </h3>
-
-                <p className="project-card__desc">
-                  {curso.descripcion}
-                </p>
 
                 <div
                   style={{

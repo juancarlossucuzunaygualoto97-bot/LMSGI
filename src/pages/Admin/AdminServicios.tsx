@@ -51,9 +51,7 @@ export default function AdminServicios() {
         precio: form.precio ? Number(form.precio) : 0,
         icono: form.icono,
         imagen: form.imagen,
-        caracteristicas: form.caracteristicas
-          .split(",")
-          .map((c) => c.trim()),
+        caracteristicas: form.caracteristicas,
       });
 
       setForm(EMPTY);
